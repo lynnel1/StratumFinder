@@ -27,11 +27,6 @@ It queries the [Spansh](https://spansh.co.uk) and [EDSM](https://www.edsm.net) d
 
 ---
 
-## Screenshots
-
-
----
-
 ## Requirements
 
 - **Windows 10 / 11 (64-bit)** for the pre-built executable.
