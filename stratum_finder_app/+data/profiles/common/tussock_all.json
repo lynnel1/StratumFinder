@@ -1,0 +1,38 @@
+{
+  "name": "Tussock (all)",
+  "display_name": "Все виды Tussock",
+  "category": "common",
+  "description": "Любой Tussock — углеродные/сернистые атмосферы",
+  "value_credits_avg": 5000000,
+  "value_credits_max_with_footfall": 25000000,
+  "filters": {
+    "subtype": [
+      "High metal content world",
+      "Rocky body"
+    ],
+    "atmosphere": [
+      "Thin Carbon dioxide",
+      "Thin Sulphur dioxide",
+      "Thin Ammonia",
+      "Carbon dioxide",
+      "Carbon dioxide-rich"
+    ],
+    "temperature_min": 130,
+    "temperature_max": 600,
+    "gravity_max": 0.3,
+    "pressure_max": 0.08,
+    "is_landable": true,
+    "distance_to_arrival_max": 50000
+  },
+  "local_check": {
+    "atmospheres": [
+      "Thin Carbon dioxide",
+      "Thin Sulphur dioxide",
+      "Thin Ammonia",
+      "Carbon dioxide",
+      "Carbon dioxide-rich"
+    ],
+    "temperature_min": 130,
+    "gravity_max": 0.3
+  }
+}

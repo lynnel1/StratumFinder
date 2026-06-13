@@ -1,0 +1,28 @@
+# Метаданные EXE — снижают подозрительность для антивирусов
+VSVersionInfo(
+  ffi=FixedFileInfo(
+    filevers=(1, 0, 0, 0),
+    prodvers=(1, 0, 0, 0),
+    mask=0x3f,
+    flags=0x0,
+    OS=0x40004,
+    fileType=0x1,
+    subtype=0x0,
+    date=(0, 0)
+  ),
+  kids=[
+    StringFileInfo([
+      StringTable(
+        '040904B0',
+        [StringStruct('CompanyName', 'StratumFinder'),
+         StringStruct('FileDescription', 'Elite Dangerous Exobiology Finder'),
+         StringStruct('FileVersion', '1.0.0.0'),
+         StringStruct('InternalName', 'StratumFinder'),
+         StringStruct('LegalCopyright', 'Free fan-made tool'),
+         StringStruct('OriginalFilename', 'StratumFinder.exe'),
+         StringStruct('ProductName', 'Stratum Finder'),
+         StringStruct('ProductVersion', '1.0.0.0')])
+      ]),
+    VarFileInfo([VarStruct('Translation', [1033, 1200])])
+  ]
+)

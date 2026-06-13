@@ -1,0 +1,68 @@
+{
+  "themes": {
+    "elite_orange": {
+      "name": "Elite Dangerous HUD (классика)",
+      "bg":          "#0F0F0F",
+      "bg_alt":      "#1A1A1A",
+      "panel":       "#222222",
+      "border":      "#FF7100",
+      "text":        "#FFA94D",
+      "text_alt":    "#FFE5C2",
+      "text_dim":    "#A86F30",
+      "accent":      "#FF7100",
+      "accent_hover":"#FFA94D",
+      "ok":          "#37D67A",
+      "warn":        "#FFD93D",
+      "err":         "#FF5252",
+      "info":        "#3DB5FF"
+    },
+    "odyssey_blue": {
+      "name": "Odyssey (сине-голубая)",
+      "bg":          "#0A1419",
+      "bg_alt":      "#13242E",
+      "panel":       "#1B2F3B",
+      "border":      "#28B6F6",
+      "text":        "#7CC4F0",
+      "text_alt":    "#C8E6F7",
+      "text_dim":    "#3D6B89",
+      "accent":      "#28B6F6",
+      "accent_hover":"#5FCBF8",
+      "ok":          "#37D67A",
+      "warn":        "#FFD93D",
+      "err":         "#FF5252",
+      "info":        "#28B6F6"
+    },
+    "midnight_purple": {
+      "name": "Midnight Purple",
+      "bg":          "#100A1F",
+      "bg_alt":      "#1B0F36",
+      "panel":       "#28194F",
+      "border":      "#A56DFF",
+      "text":        "#C8B0FF",
+      "text_alt":    "#E6D9FF",
+      "text_dim":    "#6B4FA0",
+      "accent":      "#A56DFF",
+      "accent_hover":"#C39AFF",
+      "ok":          "#37D67A",
+      "warn":        "#FFD93D",
+      "err":         "#FF5252",
+      "info":        "#A56DFF"
+    },
+    "ice_green": {
+      "name": "Зелёная (Frontier)",
+      "bg":          "#0A0F0A",
+      "bg_alt":      "#142014",
+      "panel":       "#1E2F1E",
+      "border":      "#37D67A",
+      "text":        "#9FE5BC",
+      "text_alt":    "#D6F5E2",
+      "text_dim":    "#4D8C66",
+      "accent":      "#37D67A",
+      "accent_hover":"#5FE093",
+      "ok":          "#37D67A",
+      "warn":        "#FFD93D",
+      "err":         "#FF5252",
+      "info":        "#28B6F6"
+    }
+  }
+}

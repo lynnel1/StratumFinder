@@ -1,0 +1,48 @@
+{
+  "name": "Other exobiology",
+  "display_name": "Прочая биология",
+  "category": "common",
+  "description": "Общий профиль для остальных видов (Fonticulua, Tubus, Recepta, Aleoida, Clypeus, Electricae, Fumerola и т.д.)",
+  "value_credits_avg": 5000000,
+  "value_credits_max_with_footfall": 25000000,
+  "filters": {
+    "subtype": [
+      "High metal content world",
+      "Rocky body",
+      "Icy body",
+      "Rocky ice world"
+    ],
+    "atmosphere": [
+      "Thin Carbon dioxide",
+      "Thin Sulphur dioxide",
+      "Thin Ammonia",
+      "Thin Water",
+      "Thin Methane",
+      "Thin Argon",
+      "Thin Neon",
+      "Thin Nitrogen",
+      "Thin Helium"
+    ],
+    "temperature_min": 50,
+    "temperature_max": 700,
+    "gravity_max": 0.6,
+    "pressure_max": 0.15,
+    "is_landable": true,
+    "distance_to_arrival_max": 100000
+  },
+  "local_check": {
+    "atmospheres": [
+      "Thin Carbon dioxide",
+      "Thin Sulphur dioxide",
+      "Thin Ammonia",
+      "Thin Water",
+      "Thin Methane",
+      "Thin Argon",
+      "Thin Neon",
+      "Thin Nitrogen",
+      "Thin Helium"
+    ],
+    "temperature_min": 50,
+    "gravity_max": 0.6
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "Bacterium Omentum",
+  "display_name": "Bacterium Omentum (23M footfall)",
+  "category": "expensive",
+  "description": "Дорогой Bacterium. База 4,638,900 cr, ×5 = 23,194,500 cr. Связан с вулканизмом (neon/argon).",
+  "value_credits_avg": 4638900,
+  "value_credits_max_with_footfall": 23194500,
+  "filters": {
+    "subtype": ["High metal content world", "Rocky body", "Icy body"],
+    "atmosphere": ["Thin Neon", "Thin Argon", "Thin Nitrogen"],
+    "temperature_min": 50,
+    "temperature_max": 250,
+    "gravity_max": 0.4,
+    "pressure_max": 0.1,
+    "is_landable": true,
+    "distance_to_arrival_max": 50000
+  },
+  "local_check": {
+    "atmospheres": ["Thin Neon", "Thin Argon", "Thin Nitrogen"],
+    "temperature_min": 50,
+    "gravity_max": 0.4
+  }
+}

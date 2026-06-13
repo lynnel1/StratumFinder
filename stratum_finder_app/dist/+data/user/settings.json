@@ -1,0 +1,21 @@
+{
+  "theme": "elite_orange",
+  "min_dist_from_sol": 6000,
+  "search_radius_ly": 1000,
+  "minimap_enabled": false,
+  "minimap_x": 50,
+  "minimap_y": 50,
+  "minimap_w": 400,
+  "minimap_h": 400,
+  "notifications_enabled": false,
+  "notif_x": 100,
+  "notif_y": 100,
+  "journal_path": "",
+  "dev_mode": false,
+  "language": "en",
+  "last_csv_file": "",
+  "active_profile": "stratum/stratum_all",
+  "active_profiles": [],
+  "max_distance_from_star": 0,
+  "visited_systems": []
+}

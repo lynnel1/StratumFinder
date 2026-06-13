@@ -1,0 +1,36 @@
+{
+  "name": "Concha (all)",
+  "display_name": "Все виды Concha",
+  "category": "common",
+  "description": "Любой Concha — каменистые планеты",
+  "value_credits_avg": 4000000,
+  "value_credits_max_with_footfall": 20000000,
+  "filters": {
+    "subtype": [
+      "High metal content world",
+      "Rocky body"
+    ],
+    "atmosphere": [
+      "Thin Carbon dioxide",
+      "Thin Sulphur dioxide",
+      "Thin Nitrogen",
+      "Thin Ammonia"
+    ],
+    "temperature_min": 160,
+    "temperature_max": 195,
+    "gravity_max": 0.27,
+    "pressure_max": 0.06,
+    "is_landable": true,
+    "distance_to_arrival_max": 50000
+  },
+  "local_check": {
+    "atmospheres": [
+      "Thin Carbon dioxide",
+      "Thin Sulphur dioxide",
+      "Thin Nitrogen",
+      "Thin Ammonia"
+    ],
+    "temperature_min": 160,
+    "gravity_max": 0.27
+  }
+}
