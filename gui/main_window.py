@@ -1492,11 +1492,52 @@ class MainWindow(tk.Tk):
                     self.after(0, lambda: messagebox.showinfo(
                         _T("import_title"), _T("search_no_result")))
                     return
-                # Сортируем по footfall_score для финального порядка
-                rows.sort(key=lambda r: -int(r.get("footfall_score", 0) or 0))
-                # Перенумеровываем
-                for i, r in enumerate(rows, 1):
-                    r["route_order"] = i
+
+                # ── Общий маршрут через все системы из всех профилей ──
+                # Берём координаты систем (они есть в строках) и строим
+                # nearest-neighbour route от origin. Это даёт правильный
+                # порядок прыжков по всем найденным целям сразу.
+                from core.finder import nearest_neighbor_route, dist3d
+                systems_for_route = []
+                for r in rows:
+                    try:
+                        cx = float(r.get("coord_x") or r.get("x") or 0)
+                        cy = float(r.get("coord_y") or r.get("y") or 0)
+                        cz = float(r.get("coord_z") or r.get("z") or 0)
+                    except (TypeError, ValueError):
+                        continue
+                    sname = r.get("system_name", "")
+                    if not sname:
+                        continue
+                    systems_for_route.append({
+                        "name": sname,
+                        "coords": {"x": cx, "y": cy, "z": cz},
+                    })
+
+                if systems_for_route:
+                    route = nearest_neighbor_route(self.current_origin, systems_for_route)
+                    route_idx = {s["name"]: i + 1 for i, s in enumerate(route)}
+                    # Расстояния между соседями в маршруте
+                    jump_dist_map = {}
+                    prev = self.current_origin
+                    for s in route:
+                        d = dist3d(prev, s["coords"])
+                        jump_dist_map[s["name"]] = round(d, 2)
+                        prev = s["coords"]
+                    # Применяем к строкам
+                    for r in rows:
+                        sn = r.get("system_name", "")
+                        if sn in route_idx:
+                            r["route_order"] = route_idx[sn]
+                            r["jump_dist_ly"] = jump_dist_map[sn]
+                    # Сортируем по route_order для финального CSV
+                    rows.sort(key=lambda r: int(r.get("route_order", 9999) or 9999))
+                else:
+                    # Фоллбэк: если координат нет — сортируем по footfall_score
+                    rows.sort(key=lambda r: -int(r.get("footfall_score", 0) or 0))
+                    for i, r in enumerate(rows, 1):
+                        r["route_order"] = i
+
                 # Сохраняем
                 output_path = csv_io.save_csv(rows, output_name)
                 self.current_csv_rows = rows
