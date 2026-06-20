@@ -399,10 +399,10 @@ class MainWindow(tk.Tk):
         self.lbl_output.pack(fill="x", pady=(0, 12))
 
         # Кнопки
-        btn_analyze = self._btn(left, "📊 АНАЛИЗ ПОЗИЦИИ", self._analyze_position)
+        btn_analyze = self._btn(left, "📊 ANALYZE POSITION", self._analyze_position)
         btn_analyze.pack(fill="x", pady=4)
 
-        btn_search = self._btn(left, "🚀 СТАРТ ПОИСКА", self._start_search,
+        btn_search = self._btn(left, "🚀 START SEARCH", self._start_search,
                                primary=True)
         btn_search.pack(fill="x", pady=4)
 
