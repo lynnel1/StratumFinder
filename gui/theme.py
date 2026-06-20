@@ -1,3 +1,7 @@
+# StratumFinder — Elite Dangerous exobiology finder
+# Copyright (C) 2026 Vladislavs Hripacs (CMDR Lynnel)
+# Licensed under AGPL-3.0. See LICENSE.md for details.
+
 """Загрузка и применение цветовых тем."""
 import json
 from core.storage import get_data_dir

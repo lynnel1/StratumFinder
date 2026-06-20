@@ -1,3 +1,7 @@
+# StratumFinder — Elite Dangerous exobiology finder
+# Copyright (C) 2026 Vladislavs Hripacs (CMDR Lynnel)
+# Licensed under AGPL-3.0. See LICENSE.md for details.
+
 """
 Поисковый движок Stratum / Exobiology.
 Использует параметры из профиля биологии.

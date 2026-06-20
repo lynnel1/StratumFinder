@@ -20,7 +20,8 @@ Yes:
 - The app only reads public game data from spansh.co.uk and edsm.net.
 - It does not touch your system files, registry, or other programs.
 - It does not collect or send any personal information.
-- The full source code is open and viewable on GitHub: https://github.com/lynnel1/StratumFinder
+- The full source code is open and viewable on GitHub:
+  https://github.com/YOUR_USERNAME/stratum-finder
 
 You can verify it yourself by uploading the file to
 https://www.virustotal.com — you'll see only generic heuristic flags

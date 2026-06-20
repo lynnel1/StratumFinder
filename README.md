@@ -14,7 +14,7 @@ It queries the [Spansh](https://spansh.co.uk) and [EDSM](https://www.edsm.net) d
 - **Candidate search** — combines three Spansh strategies (pre-Odyssey data, biological signals, pure Canonn filters) and verifies each system against EDSM.
 - **First Footfall likelihood score** — each system gets a 0–100 score and a colour (🟢 70+, 🟡 40–69, 🔵 20–39, 🔴 <20) based on last-scan dates, mapping activity, and player presence.
 - **17 biology profiles** — combined Stratum profile, eight individual high-value species (including Fonticulua Fluctus at 100M with First Footfall and Electricae at 31M, both on icy worlds), and broad group profiles (all Bacterium, all Tussock, etc.). Each profile shows its credit value next to the name.
-- **Quiet-zone finder** — ranks the 20 nearest and 20 quietest regions of the galaxy with scrollable lists and sort-by-column-click, so you can pick a low-traffic area where footfalls are more likely free.
+- **Quiet-zone finder** — ranks the 30 nearest and 30 quietest regions of the galaxy with scrollable lists and sort-by-column-click, so you can pick a low-traffic area where footfalls are more likely free.
 - **Configurable max distance from main star** — in Settings choose 50k / 100k / 250k / 500k ls or no limit, overriding profile defaults. Useful for huge multi-star systems with widely separated bodies.
 - **Automatic route planning** — nearest-neighbour ordering with per-jump distances.
 - **Inventory tracker** — logs your collected organisms, auto-imports completed scans from your Elite journal, prices them by species, lets you flag First Footfall, and totals your potential Vista Genomics payout.
@@ -24,6 +24,11 @@ It queries the [Spansh](https://spansh.co.uk) and [EDSM](https://www.edsm.net) d
 - **Bilingual UI (English / Русский)** — switch language from the top-right corner; everything including logs and data values is translated.
 - **Four Elite-styled themes** — Elite Orange, Odyssey Blue, Midnight Purple, Ice Green.
 - **Developer mode** *(optional build)* — search by system name with the Sol-distance limit disabled, override filter parameters, and stop a running search.
+
+---
+
+## Screenshots
+
 
 ---
 
@@ -40,7 +45,7 @@ It queries the [Spansh](https://spansh.co.uk) and [EDSM](https://www.edsm.net) d
 
 ### Option A — Run the pre-built executable
 
-1. Download the latest version archive from the [Releases](../../releases) page.
+1. Download the latest release archive from the [Releases](../../releases) page.
 2. Extract it anywhere (a path **without non-Latin characters** is safest).
 3. Keep `StratumFinder.exe` and the `+data` folder **together** in the same directory.
 4. Double-click `StratumFinder.exe`.
@@ -50,7 +55,7 @@ On first launch the app creates a `+data/user/` folder (your settings, inventory
 ### Option B — Run from source
 
 ```bash
-git clone https://github.com/lynnel1/stratum-finder.git
+git clone https://github.com/YOUR_USERNAME/stratum-finder.git
 cd stratum-finder
 pip install -r requirements.txt
 python app.py
