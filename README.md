@@ -29,8 +29,9 @@ It queries the [Spansh](https://spansh.co.uk) and [EDSM](https://www.edsm.net) d
 
 ## Screenshots
 <img width="1540" height="1197" alt="image" src="https://github.com/user-attachments/assets/616a07ff-bae9-4708-aa56-fa1502c6c956" />
-<img width="1545" height="1205" alt="image" src="https://github.com/user-attachments/assets/20914b9c-246f-4e47-8a8e-e805c518b434" />
-<img width="1538" height="1197" alt="image" src="https://github.com/user-attachments/assets/8e6ff9b7-4eb1-4734-9169-d6ec13de604e" />
+<img width="1534" height="1201" alt="image" src="https://github.com/user-attachments/assets/9bf0b4b8-4d5e-499a-a7b6-922fd0602a50" />
+<img width="1540" height="1197" alt="image" src="https://github.com/user-attachments/assets/c4fef4a7-6a31-435f-b832-a27d895dfe95" />
+
 
 
 ---
