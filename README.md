@@ -14,7 +14,7 @@ It queries the [Spansh](https://spansh.co.uk) and [EDSM](https://www.edsm.net) d
 - **Candidate search** — combines three Spansh strategies (pre-Odyssey data, biological signals, pure Canonn filters) and verifies each system against EDSM.
 - **First Footfall likelihood score** — each system gets a 0–100 score and a colour (🟢 70+, 🟡 40–69, 🔵 20–39, 🔴 <20) based on last-scan dates, mapping activity, and player presence.
 - **17 biology profiles** — combined Stratum profile, eight individual high-value species (including Fonticulua Fluctus at 100M with First Footfall and Electricae at 31M, both on icy worlds), and broad group profiles (all Bacterium, all Tussock, etc.). Each profile shows its credit value next to the name.
-- **Quiet-zone finder** — ranks the 30 nearest and 30 quietest regions of the galaxy with scrollable lists and sort-by-column-click, so you can pick a low-traffic area where footfalls are more likely free.
+- **Quiet-zone finder** — ranks the 20 nearest and 20 quietest regions of the galaxy with scrollable lists and sort-by-column-click, so you can pick a low-traffic area where footfalls are more likely free.
 - **Configurable max distance from main star** — in Settings choose 50k / 100k / 250k / 500k ls or no limit, overriding profile defaults. Useful for huge multi-star systems with widely separated bodies.
 - **Automatic route planning** — nearest-neighbour ordering with per-jump distances.
 - **Inventory tracker** — logs your collected organisms, auto-imports completed scans from your Elite journal, prices them by species, lets you flag First Footfall, and totals your potential Vista Genomics payout.
