@@ -1,6 +1,6 @@
 # StratumFinder License
 
-Copyright (C) 2026 CMDR Lynnel (Vladislavs Hripacs)
+Copyright (C) 2026 CMDR Lynnel (Vladislavs)
 
 This program is free software: you can redistribute it and/or modify it
 under the terms of the **GNU Affero General Public License** as published
@@ -46,6 +46,36 @@ of it, and keep your changes private.
 
 - Distribute modified versions under a different (closed-source) license
 - Remove copyright notices or this license text
+
+## Authorship verification
+
+This software contains embedded authorship signatures throughout the
+source code and in the data files it generates. These signatures allow
+identification of derivative works and unauthorized distributions, even
+when surface-level modifications are made (renaming, refactoring,
+translation, recompilation).
+
+Any modification attempting to remove or alter these signatures
+constitutes an additional copyright violation under applicable law,
+separate from the AGPL-3.0 license breach itself.
+
+## Reporting violations
+
+If you encounter a distribution that you believe violates this license,
+please report it to:
+
+- **Email:** painter28266@gmail.com
+- **In-game CMDR:** Lynnel
+
+The author actively monitors public distributions of exobiology-related
+tools and CSV exports, and reserves all rights under AGPL-3.0 and
+applicable copyright law (Berne Convention, DMCA, and national
+copyright statutes). Violators automatically lose all rights granted
+by this license under AGPL-3.0 Section 8, and may be required to:
+
+- Cease distribution of the infringing software
+- Publish their modified source code under AGPL-3.0
+- Pay statutory damages and legal fees
 
 ## Full text
 
