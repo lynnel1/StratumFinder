@@ -60,7 +60,7 @@ PyInstaller, which is known to cause generic heuristic false positives.
 - It does not modify system files, registry, or other processes.
 - It does not collect or transmit personal data.
 - Full source code is publicly available at:
-  https://github.com/YOUR_USERNAME/stratum-finder
+  https://github.com/lynnel1/stratum-finder
 
 Please review and whitelist this file. I am happy to provide any
 additional information needed.
@@ -91,21 +91,10 @@ Elite Dangerous. Написано на Python и упаковано через P
 - Не изменяет системные файлы, реестр или другие процессы.
 - Не собирает и не передаёт персональные данные.
 - Полный исходный код доступен публично:
-  https://github.com/YOUR_USERNAME/stratum-finder
+  https://github.com/lynnel1/stratum-finder
 
 Прошу проверить файл и добавить в белый список. Готов предоставить
 любую дополнительную информацию.
 
 Спасибо,
 [Ваше имя]
-
-═══════════════════════════════════════════════════════════════════
-TIPS
-═══════════════════════════════════════════════════════════════════
-
-- Submit the EXACT file you distribute (same hash).
-- AVG/Avast usually respond fastest (1-3 days).
-- After whitelisting, that specific file hash is trusted for all users.
-- IMPORTANT: every time you rebuild, the hash changes -> re-submit.
-- Replace YOUR_USERNAME with your real GitHub username.
-- Hosting source on GitHub greatly increases approval chances.
