@@ -40,7 +40,7 @@ It queries the [Spansh](https://spansh.co.uk) and [EDSM](https://www.edsm.net) d
 
 ### Option A — Run the pre-built executable
 
-1. Download the latest release archive from the [Releases](../../releases) page.
+1. Download the latest version archive from the [Releases](../../releases) page.
 2. Extract it anywhere (a path **without non-Latin characters** is safest).
 3. Keep `StratumFinder.exe` and the `+data` folder **together** in the same directory.
 4. Double-click `StratumFinder.exe`.
@@ -50,7 +50,7 @@ On first launch the app creates a `+data/user/` folder (your settings, inventory
 ### Option B — Run from source
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/stratum-finder.git
+git clone https://github.com/lynnel1/stratum-finder.git
 cd stratum-finder
 pip install -r requirements.txt
 python app.py
