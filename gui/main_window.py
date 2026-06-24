@@ -932,7 +932,7 @@ class MainWindow(tk.Tk):
             font=("Consolas", 10), justify="left", anchor="w"
         ).pack(anchor="w", padx=12, pady=(10, 4))
 
-        for cmdr in ("CMDR JACK DAN1ELS", "CMDR KOLLO0994"):
+        for cmdr in ("CMDR JACK DAN1ELS", "CMDR KOLLO0994", "CMDR DIGITAL EMOTIONS"):
             tk.Label(thanks_card, text=f"   ⭐  {cmdr}",
                 bg=self.theme["panel"], fg=self.theme["accent"],
                 font=("Consolas", 11, "bold"), anchor="w"
