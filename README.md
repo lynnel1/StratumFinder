@@ -94,9 +94,8 @@ Just double-click the script you want. It installs dependencies, runs PyInstalle
    - Click **ANALYZE POSITION** to see your distance from Sol, the local busyness score, and nearby quiet zones.
    - Click **START SEARCH**.
 3. **Results tab:**
-   - Filter by colour (🟢🟡🔵🔴) and by extra criteria (if they are available).
+   - Filter by colour (🟢🟡🔵🔴) and by extra criteria (if they are available). If you are hunting biology with first footfall - use 🟢 or 70+ score marker for highest first foorfall chance.
    - **Single-click** a row to copy the system name to your clipboard (paste it into the in-game Galaxy Map).
-   - **Double-click** a row to open the system on EDSM.
    - Export the filtered list with **Export CSV**.
 4. Fly out, collect your exobiology, and use the **Inventory tab** to track and value your finds.
 
@@ -113,6 +112,8 @@ For a selected biology profile and origin point, the app runs three Spansh queri
 | **D** | Pure Canonn filter (subtype, atmosphere, temperature, gravity, pressure). |
 
 Each unique candidate system is then verified against EDSM (mapping history, recent activity), scored, and ordered into a route. The result is written to a CSV in the `n/` folder, named `profile_YYYY-MM-DD_N.csv` (the counter `N` resets each day).
+
+P.S. If you find many systems with First Footfall already claimed when filtering by 🟢 (70+), fly out another 500–1000–1500 light years (depending on your search radius) and generate a new list. Tracking every First Footfall in the galaxy in real time is simply impossible — that's exactly why the app reminds you on every launch to run EDMC, so the underlying databases keep growing for everyone.
 
 > **About First Footfall detection:** Elite Dangerous does **not** record First Footfall status in the journal at scan time — it only appears when you *sell* the data. Therefore every score is an **estimate** based on indirect signals (last-scan date, DSS activity, whether EDSM has data). The tool narrows down likely candidates; it cannot guarantee a free footfall.
 
