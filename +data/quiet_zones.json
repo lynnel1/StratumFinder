@@ -4,102 +4,262 @@
     {
       "name": "Hypoae Aim",
       "desc": "Anti-galactic, мало посетителей (тестировано: 19/19 находок)",
-      "coords": {"x": -6700, "y": 100, "z": -5800}
+      "coords": {
+        "x": -6700,
+        "y": 100,
+        "z": -5800
+      },
+      "desc_en": "Anti-galactic, few visitors. Tested: 19/19 finds.",
+      "desc_ru": "Anti-galactic, мало посетителей. Тестировано: 19/19 находок.",
+      "name_en": "Hypoae Aim",
+      "name_ru": "Hypoae Aim"
     },
     {
       "name": "Eephaips (out-of-plane +Y)",
       "desc": "Высоко над плоскостью, экспедиции пропускают",
-      "coords": {"x": 0, "y": 1900, "z": 500}
+      "coords": {
+        "x": 0,
+        "y": 1900,
+        "z": 500
+      },
+      "desc_en": "High above the galactic plane, expeditions skip this area.",
+      "desc_ru": "Высоко над плоскостью, экспедиции пропускают.",
+      "name_en": "Eephaips (out-of-plane +Y)",
+      "name_ru": "Eephaips (out-of-plane +Y)"
     },
     {
       "name": "Schwo Iao (out-of-plane +Y)",
       "desc": "Над плоскостью, разрежённый трафик",
-      "coords": {"x": 500, "y": 1700, "z": 2000}
+      "coords": {
+        "x": 500,
+        "y": 1700,
+        "z": 2000
+      },
+      "desc_en": "Above the plane, sparse traffic.",
+      "desc_ru": "Над плоскостью, разрежённый трафик.",
+      "name_en": "Schwo Iao (out-of-plane +Y)",
+      "name_ru": "Schwo Iao (out-of-plane +Y)"
     },
     {
       "name": "Bleae Eob (out-of-plane +Y)",
       "desc": "Сильно над плоскостью",
-      "coords": {"x": -300, "y": 2200, "z": -1000}
+      "coords": {
+        "x": -300,
+        "y": 2200,
+        "z": -1000
+      },
+      "desc_en": "Far above the galactic plane.",
+      "desc_ru": "Сильно над плоскостью.",
+      "name_en": "Bleae Eob (out-of-plane +Y)",
+      "name_ru": "Bleae Eob (out-of-plane +Y)"
     },
     {
       "name": "Praea Synuefe (out-of-plane -Y)",
       "desc": "Под плоскостью галактики",
-      "coords": {"x": 200, "y": -1800, "z": 1500}
+      "coords": {
+        "x": 200,
+        "y": -1800,
+        "z": 1500
+      },
+      "desc_en": "Below the galactic plane.",
+      "desc_ru": "Под плоскостью галактики.",
+      "name_en": "Praea Synuefe (out-of-plane -Y)",
+      "name_ru": "Praea Synuefe (out-of-plane -Y)"
     },
     {
       "name": "Outotz (anti-galactic)",
       "desc": "Z отрицательное, мало посетителей",
-      "coords": {"x": -500, "y": 0, "z": -3500}
+      "coords": {
+        "x": -500,
+        "y": 0,
+        "z": -3500
+      },
+      "desc_en": "Negative Z, few visitors.",
+      "desc_ru": "Z отрицательное, мало посетителей.",
+      "name_en": "Outotz (anti-galactic)",
+      "name_ru": "Outotz (anti-galactic)"
     },
     {
       "name": "Pyrie Eurl (anti-galactic deep)",
       "desc": "Глубокое anti-galactic, очень тихо",
-      "coords": {"x": 1000, "y": -200, "z": -4500}
+      "coords": {
+        "x": 1000,
+        "y": -200,
+        "z": -4500
+      },
+      "desc_en": "Deep anti-galactic, very quiet.",
+      "desc_ru": "Глубокое anti-galactic, очень тихо.",
+      "name_en": "Pyrie Eurl (anti-galactic deep)",
+      "name_ru": "Pyrie Eurl (anti-galactic deep)"
     },
     {
       "name": "Aquila's Halo",
       "desc": "Левый край галактики, разрежённый трафик",
-      "coords": {"x": -15000, "y": 200, "z": -5000}
+      "coords": {
+        "x": -15000,
+        "y": 200,
+        "z": -5000
+      },
+      "desc_en": "Left edge of the galaxy, sparse traffic.",
+      "desc_ru": "Левый край галактики, разрежённый трафик.",
+      "name_en": "Aquila's Halo",
+      "name_ru": "Aquila's Halo"
     },
     {
       "name": "Mare Somnia (anti-Sgr A*)",
       "desc": "Правый верх галактики, очень мало посетителей",
-      "coords": {"x": 8000, "y": 100, "z": 15000}
+      "coords": {
+        "x": 8000,
+        "y": 100,
+        "z": 15000
+      },
+      "desc_en": "Top-right of the galaxy, very few visitors.",
+      "desc_ru": "Правый верх галактики, очень мало посетителей.",
+      "name_en": "Mare Somnia (anti-Sgr A*)",
+      "name_ru": "Mare Somnia (anti-Sgr A*)"
     },
     {
       "name": "Tenebrae",
       "desc": "Правее центра, в стороне от Sgr A*",
-      "coords": {"x": 10000, "y": 50, "z": 8000}
+      "coords": {
+        "x": 10000,
+        "y": 50,
+        "z": 8000
+      },
+      "desc_en": "Right of centre, away from Sgr A*.",
+      "desc_ru": "Правее центра, в стороне от Sgr A*.",
+      "name_en": "Tenebrae",
+      "name_ru": "Tenebrae"
     },
     {
       "name": "Formidine Rift",
       "desc": "Под Bubble, исследовался экспедициями давно",
-      "coords": {"x": -1000, "y": -200, "z": -9000}
+      "coords": {
+        "x": -1000,
+        "y": -200,
+        "z": -9000
+      },
+      "desc_en": "Below the Bubble, explored by expeditions long ago.",
+      "desc_ru": "Под Bubble, исследовался экспедициями давно.",
+      "name_en": "Formidine Rift",
+      "name_ru": "Formidine Rift"
     },
     {
       "name": "Conflux (far Z+)",
       "desc": "Далеко за центром галактики, минимум посетителей",
-      "coords": {"x": 1500, "y": 100, "z": 25000}
+      "coords": {
+        "x": 1500,
+        "y": 100,
+        "z": 25000
+      },
+      "desc_en": "Far past the galactic centre, minimal visitors.",
+      "desc_ru": "Далеко за центром галактики, минимум посетителей.",
+      "name_en": "Conflux (far Z+)",
+      "name_ru": "Conflux (far Z+)"
     },
     {
       "name": "Far 3kpc Arm",
       "desc": "За пределами стандартных карт",
-      "coords": {"x": 8000, "y": 0, "z": 20000}
+      "coords": {
+        "x": 8000,
+        "y": 0,
+        "z": 20000
+      },
+      "desc_en": "Beyond the standard maps.",
+      "desc_ru": "За пределами стандартных карт.",
+      "name_en": "Far 3kpc Arm",
+      "name_ru": "Far 3kpc Arm"
     },
     {
-      "name": "Liqu Juliet (шаровое скопление)",
+      "name": "Liqu Juliet (globular cluster)",
       "desc": "Изолированное скопление вне плоскости",
-      "coords": {"x": -7400, "y": -12500, "z": 12500}
+      "coords": {
+        "x": -7400,
+        "y": -12500,
+        "z": 12500
+      },
+      "desc_en": "Isolated globular cluster off the plane.",
+      "desc_ru": "Изолированное скопление вне плоскости.",
+      "name_en": "Liqu Juliet (globular cluster)",
+      "name_ru": "Liqu Juliet (шаровое скопление)"
     },
     {
-      "name": "NGC 2808 (шаровое скопление)",
+      "name": "NGC 2808 (globular cluster)",
       "desc": "Изолированное скопление, очень редкие посещения",
-      "coords": {"x": -13770, "y": -10770, "z": -1115}
+      "coords": {
+        "x": -13770,
+        "y": -10770,
+        "z": -1115
+      },
+      "desc_en": "Isolated cluster, very rare visits.",
+      "desc_ru": "Изолированное скопление, очень редкие посещения.",
+      "name_en": "NGC 2808 (globular cluster)",
+      "name_ru": "NGC 2808 (шаровое скопление)"
     },
     {
       "name": "Acheron (Z+ deep)",
       "desc": "Север-Z над центром галактики",
-      "coords": {"x": 0, "y": 0, "z": 12000}
+      "coords": {
+        "x": 0,
+        "y": 0,
+        "z": 12000
+      },
+      "desc_en": "North-Z above the galactic centre.",
+      "desc_ru": "Север-Z над центром галактики.",
+      "name_en": "Acheron (Z+ deep)",
+      "name_ru": "Acheron (Z+ deep)"
     },
     {
-      "name": "The Void (между рукавами)",
+      "name": "The Void (between arms)",
       "desc": "Малозвёздная область, FSD-сложно",
-      "coords": {"x": -3000, "y": 1000, "z": 5000}
+      "coords": {
+        "x": -3000,
+        "y": 1000,
+        "z": 5000
+      },
+      "desc_en": "Low-star-density area between arms, hard for FSD.",
+      "desc_ru": "Малозвёздная область, FSD-сложно.",
+      "name_en": "The Void (between arms)",
+      "name_ru": "The Void (между рукавами)"
     },
     {
-      "name": "Erinant Marches (низ галактики)",
+      "name": "Erinant Marches (galactic south)",
       "desc": "Под нижним краем, очень тихо",
-      "coords": {"x": -12000, "y": -300, "z": -10000}
+      "coords": {
+        "x": -12000,
+        "y": -300,
+        "z": -10000
+      },
+      "desc_en": "Under the bottom edge, very quiet.",
+      "desc_ru": "Под нижним краем, очень тихо.",
+      "name_en": "Erinant Marches (galactic south)",
+      "name_ru": "Erinant Marches (низ галактики)"
     },
     {
-      "name": "Kepler's Crest (правый низ)",
+      "name": "Kepler's Crest (lower right)",
       "desc": "Дальний правый край, минимум посетителей",
-      "coords": {"x": 20000, "y": 100, "z": -3000}
+      "coords": {
+        "x": 20000,
+        "y": 100,
+        "z": -3000
+      },
+      "desc_en": "Far-right edge, minimal visitors.",
+      "desc_ru": "Дальний правый край, минимум посетителей.",
+      "name_en": "Kepler's Crest (lower right)",
+      "name_ru": "Kepler's Crest (правый низ)"
     },
     {
-      "name": "Trailblazers expansion zone (Eafots region)",
+      "name": "Trailblazers expansion zone (Eafots)",
       "desc": "Свежеколонизированный сектор (Trailblazers 2025)",
-      "coords": {"x": -1500, "y": -100, "z": 9000}
+      "coords": {
+        "x": -1500,
+        "y": -100,
+        "z": 9000
+      },
+      "desc_en": "Newly colonised sector — Trailblazers 2025.",
+      "desc_ru": "Свежеколонизированный сектор — Trailblazers 2025.",
+      "name_en": "Trailblazers expansion zone (Eafots)",
+      "name_ru": "Trailblazers expansion zone (Eafots region)"
     }
   ]
 }

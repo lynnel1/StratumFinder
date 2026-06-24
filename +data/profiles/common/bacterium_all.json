@@ -1,8 +1,8 @@
 {
   "name": "Bacterium (all)",
-  "display_name": "Все виды Bacterium",
+  "display_name": "All Bacterium species",
   "category": "common",
-  "description": "Любой Bacterium — широкий диапазон условий, обычно дешёвые виды",
+  "description": "Any Bacterium — wide range of conditions, usually cheaper species.",
   "value_credits_avg": 1000000,
   "value_credits_max_with_footfall": 5000000,
   "filters": {
@@ -44,5 +44,9 @@
     ],
     "temperature_min": 100,
     "gravity_max": 0.6
-  }
+  },
+  "display_name_en": "All Bacterium species",
+  "display_name_ru": "Все виды Bacterium",
+  "description_en": "Any Bacterium — wide range of conditions, usually cheaper species.",
+  "description_ru": "Любой Bacterium — широкий диапазон условий, обычно дешёвые виды."
 }

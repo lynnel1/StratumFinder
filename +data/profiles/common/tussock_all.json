@@ -1,8 +1,8 @@
 {
   "name": "Tussock (all)",
-  "display_name": "Все виды Tussock",
+  "display_name": "All Tussock species",
   "category": "common",
-  "description": "Любой Tussock — углеродные/сернистые атмосферы",
+  "description": "Any Tussock — carbon/sulphur atmospheres.",
   "value_credits_avg": 5000000,
   "value_credits_max_with_footfall": 25000000,
   "filters": {
@@ -34,5 +34,9 @@
     ],
     "temperature_min": 130,
     "gravity_max": 0.3
-  }
+  },
+  "display_name_en": "All Tussock species",
+  "display_name_ru": "Все виды Tussock",
+  "description_en": "Any Tussock — carbon/sulphur atmospheres.",
+  "description_ru": "Любой Tussock — углеродные/сернистые атмосферы."
 }

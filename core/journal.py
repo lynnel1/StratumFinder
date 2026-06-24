@@ -157,16 +157,19 @@ class JournalWatcher:
       - смене системы          on_system_change(name, coords)
       - сборе био              on_scan_organic(species, system, planet, scan_type)
       - продаже exobiology     on_sell_exobiology(count, total_value)
+      - смерти/уничтожении     on_died()  — все собранные образцы потеряны
     """
     def __init__(self, journal_dir: str | Path,
                  on_system_change: Callable | None = None,
                  on_scan_organic:  Callable | None = None,
                  on_sell_exobiology: Callable | None = None,
+                 on_died: Callable | None = None,
                  poll_interval: float = 2.0):
         self.dir = Path(journal_dir)
         self.on_system_change   = on_system_change
         self.on_scan_organic    = on_scan_organic
         self.on_sell_exobiology = on_sell_exobiology
+        self.on_died            = on_died
         self.poll_interval      = poll_interval
         self._stop = threading.Event()
         self._thread: threading.Thread | None = None
@@ -248,3 +251,8 @@ class JournalWatcher:
             total = sum(b.get("Value", 0) + b.get("Bonus", 0) for b in bios)
             if self.on_sell_exobiology:
                 self.on_sell_exobiology(count, total)
+        elif e == "Died":
+            # Корабль уничтожен — все несданные образцы экзобиологии потеряны.
+            # Игра автоматически их обнуляет; нам нужно почистить локальный inventory.
+            if self.on_died:
+                self.on_died()

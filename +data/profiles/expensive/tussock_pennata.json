@@ -1,13 +1,19 @@
 {
   "name": "Tussock Pennata",
-  "display_name": "Tussock Pennata (29M footfall)",
+  "display_name": "Tussock Pennata — 29M with First Footfall",
   "category": "expensive",
-  "description": "Дорогой Tussock. База 5,853,800 cr, с first footfall ×5 = 29,269,000 cr",
+  "description": "Expensive Tussock. Base 5,853,800 cr, with first footfall ×5 = 29,269,000 cr.",
   "value_credits_avg": 5853800,
   "value_credits_max_with_footfall": 29269000,
   "filters": {
-    "subtype": ["High metal content world", "Rocky body"],
-    "atmosphere": ["Thin Carbon dioxide", "Carbon dioxide"],
+    "subtype": [
+      "High metal content world",
+      "Rocky body"
+    ],
+    "atmosphere": [
+      "Thin Carbon dioxide",
+      "Carbon dioxide"
+    ],
     "temperature_min": 145,
     "temperature_max": 195,
     "gravity_max": 0.3,
@@ -16,8 +22,15 @@
     "distance_to_arrival_max": 50000
   },
   "local_check": {
-    "atmospheres": ["Thin Carbon dioxide", "Carbon dioxide"],
+    "atmospheres": [
+      "Thin Carbon dioxide",
+      "Carbon dioxide"
+    ],
     "temperature_min": 145,
     "gravity_max": 0.3
-  }
+  },
+  "display_name_en": "Tussock Pennata — 29M with First Footfall",
+  "display_name_ru": "Tussock Pennata — 29M с FF",
+  "description_en": "Expensive Tussock. Base 5,853,800 cr, with first footfall ×5 = 29,269,000 cr.",
+  "description_ru": "Дорогой Tussock. База 5,853,800 cr, с first footfall ×5 = 29,269,000 cr."
 }

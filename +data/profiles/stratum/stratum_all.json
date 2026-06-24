@@ -1,8 +1,8 @@
 {
   "name": "Stratum (all)",
-  "display_name": "Все виды Stratum",
+  "display_name": "All Stratum",
   "category": "stratum",
-  "description": "Любой Stratum. Tectonicas — топ (19M база). Также Paleas, Cucumisis, Frigus, Excutitus, Araneamus, Laminamus, Limaxus.",
+  "description": "Any Stratum. Tectonicas is the top one (19M base). Also Paleas, Cucumisis, Frigus, Excutitus, Araneamus, Laminamus, Limaxus.",
   "value_credits_avg": 19010800,
   "value_credits_max_with_footfall": 95054000,
   "filters": {
@@ -30,5 +30,9 @@
     ],
     "temperature_min": 165,
     "gravity_max": 0.5
-  }
+  },
+  "display_name_en": "All Stratum",
+  "display_name_ru": "Все виды Stratum",
+  "description_en": "Any Stratum. Tectonicas is the top one (19M base). Also Paleas, Cucumisis, Frigus, Excutitus, Araneamus, Laminamus, Limaxus.",
+  "description_ru": "Любой Stratum. Tectonicas — топ (19M база). Также Paleas, Cucumisis, Frigus, Excutitus, Araneamus, Laminamus, Limaxus."
 }

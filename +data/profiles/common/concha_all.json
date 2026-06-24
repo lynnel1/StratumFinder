@@ -1,8 +1,8 @@
 {
   "name": "Concha (all)",
-  "display_name": "Все виды Concha",
+  "display_name": "All Concha species",
   "category": "common",
-  "description": "Любой Concha — каменистые планеты",
+  "description": "Any Concha — rocky planets.",
   "value_credits_avg": 4000000,
   "value_credits_max_with_footfall": 20000000,
   "filters": {
@@ -32,5 +32,9 @@
     ],
     "temperature_min": 160,
     "gravity_max": 0.27
-  }
+  },
+  "display_name_en": "All Concha species",
+  "display_name_ru": "Все виды Concha",
+  "description_en": "Any Concha — rocky planets.",
+  "description_ru": "Любой Concha — каменистые планеты."
 }

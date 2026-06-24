@@ -1,8 +1,8 @@
 {
   "name": "Osseus (all)",
-  "display_name": "Все виды Osseus",
+  "display_name": "All Osseus species",
   "category": "common",
-  "description": "Любой Osseus — каменистые планеты разных условий",
+  "description": "Any Osseus — rocky planets, varied conditions.",
   "value_credits_avg": 6500000,
   "value_credits_max_with_footfall": 32500000,
   "filters": {
@@ -34,5 +34,9 @@
     ],
     "temperature_min": 160,
     "gravity_max": 0.35
-  }
+  },
+  "display_name_en": "All Osseus species",
+  "display_name_ru": "Все виды Osseus",
+  "description_en": "Any Osseus — rocky planets, varied conditions.",
+  "description_ru": "Любой Osseus — каменистые планеты разных условий."
 }

@@ -290,7 +290,7 @@ class MainWindow(tk.Tk):
             if not cat_profiles: continue
             self._dropdown_items.append((category_labels[cur_lang][cat], None))
             for p in cat_profiles:
-                name = p.get("display_name", p["id"])
+                name = self._profile_display_name(p) or p["id"]
                 val_avg = p.get("value_credits_avg", 0)
                 if val_avg >= 1_000_000:
                     price = f"~{val_avg/1_000_000:.1f}M cr"
@@ -399,10 +399,10 @@ class MainWindow(tk.Tk):
         self.lbl_output.pack(fill="x", pady=(0, 12))
 
         # Кнопки
-        btn_analyze = self._btn(left, "📊 ANALYZE POSITION", self._analyze_position)
+        btn_analyze = self._btn(left, _T("analyze_pos"), self._analyze_position)
         btn_analyze.pack(fill="x", pady=4)
 
-        btn_search = self._btn(left, "🚀 START SEARCH", self._start_search,
+        btn_search = self._btn(left, _T("start_search"), self._start_search,
                                primary=True)
         btn_search.pack(fill="x", pady=4)
 
@@ -569,12 +569,25 @@ class MainWindow(tk.Tk):
         self.tree_results.pack(side="left", fill="both", expand=True)
         vsb.pack(side="right", fill="y")
 
+        # Подсказка под таблицей
+        if L._lang == "ru":
+            hint_text = ("💡 Клик по колонке Visited — переключить ✓ / —"
+                         "    •    Клик по строке — копировать имя системы")
+        else:
+            hint_text = ("💡 Click on Visited column — toggle ✓ / —"
+                         "    •    Single click on a row — copy system name")
+        tk.Label(frame, text=hint_text,
+            bg=self.theme["bg"], fg=self.theme["text_dim"],
+            font=("Consolas", 9), anchor="w"
+        ).pack(fill="x", padx=12, pady=(0, 6))
+
         # Одиночный клик — копировать название системы в буфер
         self.tree_results.bind("<<TreeviewSelect>>", self._on_result_select)
         # Клик по колонке Visited — переключить ✓ / —
         self.tree_results.bind("<Button-1>", self._on_result_click, add="+")
-        # Двойной клик — открыть систему в EDSM
-        self.tree_results.bind("<Double-1>", self._on_result_double_click)
+        # Двойной клик на EDSM отключён — EDSM URL давал 404 и не давал
+        # пользы пользователю. Имя системы копируется одиночным кликом
+        # и его можно вставить в галактическую карту игры.
 
         return frame
 
@@ -1123,6 +1136,30 @@ class MainWindow(tk.Tk):
         """Возвращает список id выбранных профилей (в порядке добавления)."""
         return list(self.selected_profile_ids)
 
+    def _profile_display_name(self, p: dict) -> str:
+        """Локализованное имя профиля по текущему языку UI."""
+        if L._lang == "ru":
+            return p.get("display_name_ru") or p.get("display_name", "")
+        return p.get("display_name_en") or p.get("display_name", "")
+
+    def _profile_description(self, p: dict) -> str:
+        """Локализованное описание профиля по текущему языку UI."""
+        if L._lang == "ru":
+            return p.get("description_ru") or p.get("description", "")
+        return p.get("description_en") or p.get("description", "")
+
+    def _zone_name(self, z: dict) -> str:
+        """Локализованное имя тихой зоны."""
+        if L._lang == "ru":
+            return z.get("name_ru") or z.get("name", "")
+        return z.get("name_en") or z.get("name", "")
+
+    def _zone_desc(self, z: dict) -> str:
+        """Локализованное описание тихой зоны."""
+        if L._lang == "ru":
+            return z.get("desc_ru") or z.get("desc", "")
+        return z.get("desc_en") or z.get("desc", "")
+
     def _on_profile_change(self, *_):
         """Обновляет описание под чипами по текущему выбору."""
         selected = self._get_selected_profile_ids()
@@ -1134,18 +1171,18 @@ class MainWindow(tk.Tk):
         if len(selected) == 1:
             p = profiles.load_profile(selected[0])
             if p:
-                desc = p.get("description", "")
+                desc = self._profile_description(p)
                 val_avg = p.get("value_credits_avg", 0)
                 val_max = p.get("value_credits_max_with_footfall", 0)
                 text = (f"{desc}\n\n" +
                         _T("profile_value").format(avg=f"{val_avg:,}", max=f"{val_max:,}"))
                 self.lbl_profile_desc.config(text=text)
-                self.lbl_profile.config(text=f"{_T('profile')}: {p.get('display_name', '')}")
+                self.lbl_profile.config(text=f"{_T('profile')}: {self._profile_display_name(p)}")
         else:
             names = []
             for pid in selected:
                 p = profiles.load_profile(pid)
-                if p: names.append(p.get("display_name", pid))
+                if p: names.append(self._profile_display_name(p) or pid)
             sel_label = ("Выбрано {n} профилей:" if ru
                          else "Selected {n} profiles:").format(n=len(selected))
             self.lbl_profile_desc.config(text=f"{sel_label}\n  • " + "\n  • ".join(names))
@@ -1169,7 +1206,7 @@ class MainWindow(tk.Tk):
         for pid in self.selected_profile_ids:
             p = self._profile_data.get(pid)
             if not p: continue
-            name = p.get("display_name", pid)
+            name = self._profile_display_name(p) or pid
             val_avg = p.get("value_credits_avg", 0)
             val_max = p.get("value_credits_max", p.get("value_credits_max_with_footfall", 0))
 
@@ -1348,11 +1385,11 @@ class MainWindow(tk.Tk):
         result = zones.rank_zones(self.current_origin)
         self.tree_nearest.delete(*self.tree_nearest.get_children())
         for z in result["nearest"]:
-            self.tree_nearest.insert("", "end", text=z["name"],
+            self.tree_nearest.insert("", "end", text=self._zone_name(z),
                 values=(f"{z['dist_from_user']:.0f}", z["busy_score"]))
         self.tree_quiet.delete(*self.tree_quiet.get_children())
         for z in result["quiet"]:
-            self.tree_quiet.insert("", "end", text=z["name"],
+            self.tree_quiet.insert("", "end", text=self._zone_name(z),
                 values=(f"{z['dist_from_user']:.0f}", z["busy_score"]))
         self._zones_cache = result
 
@@ -1395,13 +1432,13 @@ class MainWindow(tk.Tk):
         zlist = (self._zones_cache.get("nearest", []) +
                  self._zones_cache.get("quiet", []))
         for z in zlist:
-            if z["name"] == zname:
+            if self._zone_name(z) == zname:
                 ans = messagebox.askyesno(
                     _T("zone_select"),
-                    _T("use_zone_coords").format(name=z["name"], x=z["coords"]["x"], y=z["coords"]["y"], z=z["coords"]["z"]))
+                    _T("use_zone_coords").format(name=self._zone_name(z), x=z["coords"]["x"], y=z["coords"]["y"], z=z["coords"]["z"]))
                 if ans:
                     self.current_origin = z["coords"]
-                    self.current_system_name = z["name"]
+                    self.current_system_name = self._zone_name(z)
                     self._update_top_panel()
                     self._log(f"\n✅ Выбрана зона: {z['name']}")
                 return
@@ -1469,7 +1506,7 @@ class MainWindow(tk.Tk):
                 ru = (L._lang == "ru")
                 n_profs = len(profs)
                 for i, prof in enumerate(profs):
-                    pname = prof.get("display_name", prof.get("_id", "?"))
+                    pname = self._profile_display_name(prof) or prof.get("_id", "?")
                     if n_profs > 1:
                         prefix = f"[{i+1}/{n_profs}] "
                         self._log(prefix + (f"Поиск: {pname}" if ru else f"Searching: {pname}"))
@@ -1552,7 +1589,7 @@ class MainWindow(tk.Tk):
                 self._log(L.t("log_file").format(f=output_path))
                 storage.add_history({
                     "system":  self.current_system_name,
-                    "profile": ", ".join(p.get("display_name", "") for p in profs),
+                    "profile": ", ".join(self._profile_display_name(p) for p in profs),
                     "radius":  radius,
                     "count":   len(rows),
                     "file":    output_path,
@@ -1742,16 +1779,6 @@ class MainWindow(tk.Tk):
             self.lbl_progress.config(text=f"{_T('copied')}: {sname}")
         except Exception:
             pass
-
-    def _on_result_double_click(self, event):
-        sel = self.tree_results.selection()
-        if not sel:
-            return
-        vals = self.tree_results.item(sel[0], "values")
-        sname = vals[2]
-        # Открыть EDSM
-        url = f"https://www.edsm.net/en/system/name/{sname.replace(' ', '+')}"
-        webbrowser.open(url)
 
     def _on_result_click(self, event):
         """Одиночный клик по колонке Visited — переключить ✓ / —"""
@@ -2252,11 +2279,31 @@ class MainWindow(tk.Tk):
             storage.sell_all()
             self.after(0, self._refresh_inventory)
 
+        def on_died():
+            # Корабль уничтожен — все несданные образцы потеряны.
+            # Очищаем inventory и уведомляем игрока.
+            ru = (L._lang == "ru")
+            removed = storage.clear_inventory()
+            if removed > 0:
+                self.after(0, self._refresh_inventory)
+                title = "💀 Корабль уничтожен" if ru else "💀 Ship destroyed"
+                msg = (f"Корабль уничтожен. Из инвентаря удалено образцов: {removed}.\n"
+                       f"Несданная экзобиология потеряна."
+                       if ru else
+                       f"Your ship was destroyed. Inventory cleared: {removed} samples removed.\n"
+                       f"Unsold exobiology data is lost.")
+                self.after(0, lambda: messagebox.showwarning(title, msg))
+                log_msg = (f"💀 Корабль уничтожен — инвентарь очищен ({removed} образцов потеряно)"
+                           if ru else
+                           f"💀 Ship destroyed — inventory cleared ({removed} samples lost)")
+                self.after(0, lambda: self._log(log_msg))
+
         self.journal_watcher = journal.JournalWatcher(
             path,
             on_system_change=on_system_change,
             on_scan_organic=on_scan_organic,
             on_sell_exobiology=on_sell,
+            on_died=on_died,
         )
         self.journal_watcher.start()
         self._journal_active = True

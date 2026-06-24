@@ -10,12 +10,26 @@ from pathlib import Path
 from .storage import get_data_dir
 
 
+def get_localized_name(profile: dict, lang: str = "en") -> str:
+    """Локализованное имя профиля (en/ru). Латинские роды НЕ переводятся."""
+    if lang == "ru":
+        return (profile.get("display_name_ru")
+                or profile.get("display_name")
+                or profile.get("name", ""))
+    return (profile.get("display_name_en")
+            or profile.get("display_name")
+            or profile.get("name", ""))
+
+
+def get_localized_description(profile: dict, lang: str = "en") -> str:
+    """Локализованное описание профиля."""
+    if lang == "ru":
+        return profile.get("description_ru") or profile.get("description", "")
+    return profile.get("description_en") or profile.get("description", "")
+
+
 def list_profiles() -> list[dict]:
-    """
-    Возвращает список всех доступных профилей в виде:
-    [{"id": "stratum/stratum_all", "display_name": "...", "category": "stratum", ...}, ...]
-    Категории: stratum, expensive, common
-    """
+    """Все профили с двуязычными полями для UI."""
     profiles_dir = get_data_dir() / "profiles"
     if not profiles_dir.exists():
         return []
@@ -29,12 +43,16 @@ def list_profiles() -> list[dict]:
                     p = json.load(f)
                 profile_id = f"{cat_dir.name}/{jf.stem}"
                 result.append({
-                    "id":           profile_id,
-                    "display_name": p.get("display_name", p.get("name", profile_id)),
-                    "category":     p.get("category", cat_dir.name),
-                    "description":  p.get("description", ""),
-                    "value_credits_avg":     p.get("value_credits_avg", 0),
-                    "value_credits_max":     p.get("value_credits_max_with_footfall", 0),
+                    "id":              profile_id,
+                    "display_name":    p.get("display_name", p.get("name", profile_id)),
+                    "display_name_en": p.get("display_name_en", p.get("display_name", profile_id)),
+                    "display_name_ru": p.get("display_name_ru", p.get("display_name", profile_id)),
+                    "category":        p.get("category", cat_dir.name),
+                    "description":     p.get("description", ""),
+                    "description_en":  p.get("description_en", p.get("description", "")),
+                    "description_ru":  p.get("description_ru", p.get("description", "")),
+                    "value_credits_avg": p.get("value_credits_avg", 0),
+                    "value_credits_max": p.get("value_credits_max_with_footfall", 0),
                 })
             except Exception as e:
                 print(f"⚠️  Ошибка загрузки {jf}: {e}")

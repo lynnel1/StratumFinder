@@ -1,13 +1,19 @@
 {
   "name": "Tussock Triticum",
-  "display_name": "Tussock Triticum (38M footfall)",
+  "display_name": "Tussock Triticum — 38M with First Footfall",
   "category": "expensive",
-  "description": "База 7,774,700 cr, с first footfall ×5 = 38,873,500 cr",
+  "description": "Base 7,774,700 cr, with first footfall ×5 = 38,873,500 cr.",
   "value_credits_avg": 7774700,
   "value_credits_max_with_footfall": 38873500,
   "filters": {
-    "subtype": ["High metal content world", "Rocky body"],
-    "atmosphere": ["Thin Ammonia", "Thin Carbon dioxide"],
+    "subtype": [
+      "High metal content world",
+      "Rocky body"
+    ],
+    "atmosphere": [
+      "Thin Ammonia",
+      "Thin Carbon dioxide"
+    ],
     "temperature_min": 145,
     "temperature_max": 200,
     "gravity_max": 0.3,
@@ -16,8 +22,15 @@
     "distance_to_arrival_max": 50000
   },
   "local_check": {
-    "atmospheres": ["Thin Ammonia", "Thin Carbon dioxide"],
+    "atmospheres": [
+      "Thin Ammonia",
+      "Thin Carbon dioxide"
+    ],
     "temperature_min": 145,
     "gravity_max": 0.3
-  }
+  },
+  "display_name_en": "Tussock Triticum — 38M with First Footfall",
+  "display_name_ru": "Tussock Triticum — 38M с FF",
+  "description_en": "Base 7,774,700 cr, with first footfall ×5 = 38,873,500 cr.",
+  "description_ru": "База 7,774,700 cr, с first footfall ×5 = 38,873,500 cr."
 }

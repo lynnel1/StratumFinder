@@ -1,13 +1,20 @@
 {
   "name": "Concha Renibus",
-  "display_name": "Concha Renibus (22M footfall)",
+  "display_name": "Concha Renibus — 22M with First Footfall",
   "category": "expensive",
-  "description": "База 4,572,400 cr, с first footfall ×5 = 22,862,000 cr. Рваный рельеф.",
+  "description": "Base 4,572,400 cr, with first footfall ×5 = 22,862,000 cr. Rugged terrain.",
   "value_credits_avg": 4572400,
   "value_credits_max_with_footfall": 22862000,
   "filters": {
-    "subtype": ["High metal content world", "Rocky body"],
-    "atmosphere": ["Thin Carbon dioxide", "Thin Sulphur dioxide", "Thin Nitrogen"],
+    "subtype": [
+      "High metal content world",
+      "Rocky body"
+    ],
+    "atmosphere": [
+      "Thin Carbon dioxide",
+      "Thin Sulphur dioxide",
+      "Thin Nitrogen"
+    ],
     "temperature_min": 180,
     "temperature_max": 195,
     "gravity_max": 0.27,
@@ -16,8 +23,16 @@
     "distance_to_arrival_max": 50000
   },
   "local_check": {
-    "atmospheres": ["Thin Carbon dioxide", "Thin Sulphur dioxide", "Thin Nitrogen"],
+    "atmospheres": [
+      "Thin Carbon dioxide",
+      "Thin Sulphur dioxide",
+      "Thin Nitrogen"
+    ],
     "temperature_min": 180,
     "gravity_max": 0.27
-  }
+  },
+  "display_name_en": "Concha Renibus — 22M with First Footfall",
+  "display_name_ru": "Concha Renibus — 22M с FF",
+  "description_en": "Base 4,572,400 cr, with first footfall ×5 = 22,862,000 cr. Rugged terrain.",
+  "description_ru": "База 4,572,400 cr, с first footfall ×5 = 22,862,000 cr. Рваный рельеф."
 }

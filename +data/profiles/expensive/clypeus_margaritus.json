@@ -1,13 +1,19 @@
 {
   "name": "Clypeus Margaritus",
-  "display_name": "Clypeus Margaritus (59M footfall)",
+  "display_name": "Clypeus Margaritus — 59M with First Footfall",
   "category": "expensive",
-  "description": "Один из самых дорогих! База 11,873,200 cr, с first footfall ×5 = 59,366,000 cr. Водные/CO2 атмосферы.",
+  "description": "One of the most expensive! Base 11,873,200 cr, with first footfall ×5 = 59,366,000 cr. Water and CO2 atmospheres.",
   "value_credits_avg": 11873200,
   "value_credits_max_with_footfall": 59366000,
   "filters": {
-    "subtype": ["High metal content world", "Rocky body"],
-    "atmosphere": ["Thin Water", "Thin Carbon dioxide"],
+    "subtype": [
+      "High metal content world",
+      "Rocky body"
+    ],
+    "atmosphere": [
+      "Thin Water",
+      "Thin Carbon dioxide"
+    ],
     "temperature_min": 190,
     "temperature_max": 400,
     "gravity_max": 0.27,
@@ -16,8 +22,15 @@
     "distance_to_arrival_max": 50000
   },
   "local_check": {
-    "atmospheres": ["Thin Water", "Thin Carbon dioxide"],
+    "atmospheres": [
+      "Thin Water",
+      "Thin Carbon dioxide"
+    ],
     "temperature_min": 190,
     "gravity_max": 0.27
-  }
+  },
+  "display_name_en": "Clypeus Margaritus — 59M with First Footfall",
+  "display_name_ru": "Clypeus Margaritus — 59M с FF",
+  "description_en": "One of the most expensive! Base 11,873,200 cr, with first footfall ×5 = 59,366,000 cr. Water and CO2 atmospheres.",
+  "description_ru": "Один из самых дорогих! База 11,873,200 cr, с first footfall ×5 = 59,366,000 cr. Атмосферы Water и CO2."
 }

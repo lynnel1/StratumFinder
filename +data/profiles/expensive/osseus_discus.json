@@ -1,13 +1,19 @@
 {
   "name": "Osseus Discus",
-  "display_name": "Osseus Discus (база 12.9M)",
+  "display_name": "Osseus Discus — 12.9M base",
   "category": "expensive",
-  "description": "Самый дорогой Osseus по базе: 12,934,900 cr. Водные атмосферы.",
+  "description": "Most expensive Osseus by base price: 12,934,900 cr. Water atmospheres.",
   "value_credits_avg": 12934900,
   "value_credits_max_with_footfall": 64674500,
   "filters": {
-    "subtype": ["High metal content world", "Rocky body"],
-    "atmosphere": ["Thin Water", "Thin Carbon dioxide"],
+    "subtype": [
+      "High metal content world",
+      "Rocky body"
+    ],
+    "atmosphere": [
+      "Thin Water",
+      "Thin Carbon dioxide"
+    ],
     "temperature_min": 200,
     "temperature_max": 500,
     "gravity_max": 0.3,
@@ -16,8 +22,15 @@
     "distance_to_arrival_max": 50000
   },
   "local_check": {
-    "atmospheres": ["Thin Water", "Thin Carbon dioxide"],
+    "atmospheres": [
+      "Thin Water",
+      "Thin Carbon dioxide"
+    ],
     "temperature_min": 200,
     "gravity_max": 0.3
-  }
+  },
+  "display_name_en": "Osseus Discus — 12.9M base",
+  "display_name_ru": "Osseus Discus — 12.9M база",
+  "description_en": "Most expensive Osseus by base price: 12,934,900 cr. Water atmospheres.",
+  "description_ru": "Самый дорогой Osseus по базе: 12,934,900 cr. Водные атмосферы."
 }

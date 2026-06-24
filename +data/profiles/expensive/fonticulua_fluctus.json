@@ -1,13 +1,19 @@
 {
   "name": "Fonticulua Fluctus",
-  "display_name": "Fonticulua Fluctus (100M footfall, самый дорогой!)",
+  "display_name": "Fonticulua Fluctus — 100M with First Footfall, most expensive!",
   "category": "expensive",
-  "description": "Самый дорогой вид экзобиологии! База ~20,000,000 cr, с first footfall ×5 = ~100,000,000 cr. Спавнится только на ICY worlds с Neon/Argon атмосферой и очень низкой температурой.",
+  "description": "The most expensive exobiology species! Base ~20,000,000 cr, with first footfall ×5 = ~100,000,000 cr. Spawns only on ICY worlds with Neon/Argon atmosphere and very low temperature.",
   "value_credits_avg": 20000000,
   "value_credits_max_with_footfall": 100000000,
   "filters": {
-    "subtype": ["Icy body"],
-    "atmosphere": ["Thin Neon", "Thin Argon", "Thin Neon-rich"],
+    "subtype": [
+      "Icy body"
+    ],
+    "atmosphere": [
+      "Thin Neon",
+      "Thin Argon",
+      "Thin Neon-rich"
+    ],
     "temperature_min": 20,
     "temperature_max": 70,
     "gravity_max": 0.27,
@@ -16,8 +22,16 @@
     "distance_to_arrival_max": 50000
   },
   "local_check": {
-    "atmospheres": ["Thin Neon", "Thin Argon", "Thin Neon-rich"],
+    "atmospheres": [
+      "Thin Neon",
+      "Thin Argon",
+      "Thin Neon-rich"
+    ],
     "temperature_max": 70,
     "gravity_max": 0.27
-  }
+  },
+  "display_name_en": "Fonticulua Fluctus — 100M with First Footfall, most expensive!",
+  "display_name_ru": "Fonticulua Fluctus — 100M с FF, самый дорогой!",
+  "description_en": "The most expensive exobiology species! Base ~20,000,000 cr, with first footfall ×5 = ~100,000,000 cr. Spawns only on ICY worlds with Neon/Argon atmosphere and very low temperature.",
+  "description_ru": "Самый дорогой вид экзобиологии! База ~20,000,000 cr, с first footfall ×5 = ~100,000,000 cr. Спавнится только на ICY worlds с Neon/Argon атмосферой и очень низкой температурой."
 }

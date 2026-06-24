@@ -1,8 +1,8 @@
 {
   "name": "Frutexa (all)",
-  "display_name": "Все виды Frutexa",
+  "display_name": "All Frutexa species",
   "category": "common",
-  "description": "Любой Frutexa — разные атмосферы и температуры",
+  "description": "Any Frutexa — varied atmospheres and temperatures.",
   "value_credits_avg": 3500000,
   "value_credits_max_with_footfall": 17500000,
   "filters": {
@@ -34,5 +34,9 @@
     ],
     "temperature_min": 100,
     "gravity_max": 0.3
-  }
+  },
+  "display_name_en": "All Frutexa species",
+  "display_name_ru": "Все виды Frutexa",
+  "description_en": "Any Frutexa — varied atmospheres and temperatures.",
+  "description_ru": "Любой Frutexa — разные атмосферы и температуры."
 }

@@ -363,6 +363,20 @@ def sell_all() -> int:
     return total
 
 
+def clear_inventory() -> int:
+    """
+    Очищает инвентарь БЕЗ начисления credits (вызывается при Died event).
+    Образцы потеряны вместе с кораблём.
+    Возвращает количество удалённых записей.
+    """
+    inv = load_inventory()
+    removed = len(inv.get("samples", []))
+    inv["samples"] = []
+    inv["last_died_at"] = datetime.now().isoformat()
+    save_inventory(inv)
+    return removed
+
+
 def get_inventory_summary() -> dict:
     """Сводка по инвентарю: всего наборов, потенциальный заработок."""
     inv = load_inventory()

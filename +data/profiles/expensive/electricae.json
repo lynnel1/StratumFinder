@@ -1,13 +1,20 @@
 {
   "name": "Electricae",
-  "display_name": "Electricae (31M footfall, ледяные миры)",
+  "display_name": "Electricae — 31M with First Footfall, icy worlds",
   "category": "expensive",
-  "description": "Electricae Pluma / Radialem. База 6,284,600 cr, с first footfall ×5 = 31,423,000 cr. Только ICY worlds с очень холодной атмосферой Helium/Neon. Electricae Radialem спавнится только в радиусе ~100 ly от туманности.",
+  "description": "Electricae Pluma and Radialem. Base 6,284,600 cr, with first footfall ×5 = 31,423,000 cr. Only on ICY worlds with very cold Helium/Neon atmosphere. Electricae Radialem spawns only within ~100 ly of a nebula.",
   "value_credits_avg": 6284600,
   "value_credits_max_with_footfall": 31423000,
   "filters": {
-    "subtype": ["Icy body"],
-    "atmosphere": ["Thin Helium", "Thin Neon", "Thin Argon", "Thin Neon-rich"],
+    "subtype": [
+      "Icy body"
+    ],
+    "atmosphere": [
+      "Thin Helium",
+      "Thin Neon",
+      "Thin Argon",
+      "Thin Neon-rich"
+    ],
     "temperature_min": 20,
     "temperature_max": 80,
     "gravity_max": 0.27,
@@ -16,8 +23,17 @@
     "distance_to_arrival_max": 50000
   },
   "local_check": {
-    "atmospheres": ["Thin Helium", "Thin Neon", "Thin Argon", "Thin Neon-rich"],
+    "atmospheres": [
+      "Thin Helium",
+      "Thin Neon",
+      "Thin Argon",
+      "Thin Neon-rich"
+    ],
     "temperature_max": 80,
     "gravity_max": 0.27
-  }
+  },
+  "display_name_en": "Electricae — 31M with First Footfall, icy worlds",
+  "display_name_ru": "Electricae — 31M с FF, ледяные миры",
+  "description_en": "Electricae Pluma and Radialem. Base 6,284,600 cr, with first footfall ×5 = 31,423,000 cr. Only on ICY worlds with very cold Helium/Neon atmosphere. Electricae Radialem spawns only within ~100 ly of a nebula.",
+  "description_ru": "Electricae Pluma и Radialem. База 6,284,600 cr, с first footfall ×5 = 31,423,000 cr. Только ICY worlds с очень холодной атмосферой Helium/Neon. Electricae Radialem спавнится только в радиусе ~100 ly от туманности."
 }
