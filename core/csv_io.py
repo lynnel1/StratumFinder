@@ -43,7 +43,6 @@ def _encode_bits_l1(payload: str) -> str:
 
 
 def _encode_bits_l2(payload: str) -> str:
-    """Уровень 2: обратная схема + BOM-обёртки."""
     h = hashlib.sha256(payload.encode()).hexdigest()[:8]
     bits = bin(int(h, 16))[2:].zfill(32)
     return _BOM + "".join(_ZWNJ if b == "0" else _ZWSP for b in bits) + _BOM
@@ -68,14 +67,12 @@ def _embed_watermark(rows: list[dict]) -> None:
     if not inserted:
         rows[0]["_meta_a"] = marker_l1
 
-    # Уровень 2 — в _meta_b последней строки
     payload_l2 = f"{_AUTHOR_TAG}-tail:{ts}:{n}"
     marker_l2 = _encode_bits_l2(payload_l2)
     rows[-1]["_meta_b"] = marker_l2
 
 
 def _strip_watermark(value: str) -> str:
-    """Убирает невидимые символы при чтении CSV."""
     if not isinstance(value, str):
         return value
     return (value.replace(_ZWSP, "")
