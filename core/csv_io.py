@@ -32,11 +32,10 @@ _ZWNJ = "\u200C"
 _ZWJ  = "\u200D"   
 _BOM  = "\uFEFF"   
 
-_AUTHOR_TAG = "sf2v6c:lnl"   # CMDR Lynnel, sf2v6c = код версии формата
+LAG = "sf2v6c:lnl"  
 
 
 def _encode_bits_l1(payload: str) -> str:
-    """Уровень 1: первые 8 hex-разрядов SHA256 → 32 бита → ZWSP/ZWNJ."""
     h = hashlib.sha256(payload.encode()).hexdigest()[:8]
     bits = bin(int(h, 16))[2:].zfill(32)
     return _ZWJ + "".join(_ZWSP if b == "0" else _ZWNJ for b in bits) + _ZWJ
@@ -48,15 +47,14 @@ def _encode_bits_l2(payload: str) -> str:
     return _BOM + "".join(_ZWNJ if b == "0" else _ZWSP for b in bits) + _BOM
 
 
-def _embed_watermark(rows: list[dict]) -> None:
+def _embed(rows: list[dict]) -> None:
     
     if not rows:
         return
     ts = datetime.now(timezone.utc).strftime("%Y%m%d%H%M")
     n = len(rows)
 
-    # Уровень 1
-    payload_l1 = f"{_AUTHOR_TAG}:{ts}:{n}"
+    payload_l1 = f"{LAG}:{ts}:{n}"
     marker_l1 = _encode_bits_l1(payload_l1)
     inserted = False
     for k, v in list(rows[0].items()):
@@ -67,12 +65,12 @@ def _embed_watermark(rows: list[dict]) -> None:
     if not inserted:
         rows[0]["_meta_a"] = marker_l1
 
-    payload_l2 = f"{_AUTHOR_TAG}-tail:{ts}:{n}"
+    payload_l2 = f"{LAG}-tail:{ts}:{n}"
     marker_l2 = _encode_bits_l2(payload_l2)
     rows[-1]["_meta_b"] = marker_l2
 
 
-def _strip_watermark(value: str) -> str:
+def strii(value: str) -> str:
     if not isinstance(value, str):
         return value
     return (value.replace(_ZWSP, "")
@@ -88,7 +86,7 @@ def save_csv(rows: list[dict], filepath: str) -> str:
         p = p.with_suffix(".csv")
 
    
-    _embed_watermark(rows)
+    _embed(rows)
 
     with open(p, "w", newline="", encoding="utf-8") as f:
         all_keys = set()
@@ -113,6 +111,6 @@ def load_csv(filepath: str) -> list[dict]:
         reader = csv.DictReader(f)
         result = []
         for row in reader:
-            clean = {k: _strip_watermark(v) for k, v in row.items()}
+            clean = {k: strii(v) for k, v in row.items()}
             result.append(clean)
         return result
