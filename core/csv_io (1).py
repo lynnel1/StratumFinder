@@ -2,7 +2,14 @@
 # Copyright (C) 2026 Vladislavs Hripacs (CMDR Lynnel)
 # Licensed under AGPL-3.0. See LICENSE.md for details.
 
+"""
+CSV-операции: запись результата поиска, чтение готового CSV.
 
+Включает невидимую защиту от копирования: многоуровневый watermark
+из символов нулевой ширины (U+200B / U+200C / U+200D / U+FEFF). Глазом
+не видно вообще, парсинг CSV не ломается. См. decode_watermark.py для
+проверки конкретного файла.
+"""
 import csv
 import hashlib
 from datetime import datetime, timezone
@@ -26,11 +33,12 @@ CSV_FIELDNAMES = [
     "_meta_b",
 ]
 
-
-_ZWSP = "\u200B"  
-_ZWNJ = "\u200C"   
-_ZWJ  = "\u200D"   
-_BOM  = "\uFEFF"   
+# ── Скрытая метка авторства ─────────────────────────────────────
+# Все эти символы НЕВИДИМЫ при просмотре файла в любом редакторе/Excel.
+_ZWSP = "\u200B"   # ZERO WIDTH SPACE        — бит 0 (уровень 1)
+_ZWNJ = "\u200C"   # ZERO WIDTH NON-JOINER   — бит 1 (уровень 1)
+_ZWJ  = "\u200D"   # ZERO WIDTH JOINER       — разделитель уровня 1
+_BOM  = "\uFEFF"   # ZERO WIDTH NO-BREAK SPACE — обёртка уровня 2
 
 _AUTHOR_TAG = "sf2v6c:lnl"   # CMDR Lynnel, sf2v6c = код версии формата
 
@@ -50,7 +58,26 @@ def _encode_bits_l2(payload: str) -> str:
 
 
 def _embed_watermark(rows: list[dict]) -> None:
-    
+    """
+    Многоуровневая невидимая метка авторства.
+
+    УРОВЕНЬ 1 — в первой data-строке, в первом непустом текстовом поле:
+        SHA256[:8] от 'sf2v6c:lnl:{timestamp}:{rowcount}'.
+        Окружён двумя ZWJ-разделителями (U+200D).
+        Биты кодируются: 0 → U+200B, 1 → U+200C.
+
+    УРОВЕНЬ 2 — в служебной колонке `_meta_b` ПОСЛЕДНЕЙ data-строки:
+        SHA256[:8] от 'sf2v6c:lnl-tail:{timestamp}:{rowcount}'.
+        Окружён двумя BOM (U+FEFF).
+        Биты кодируются ИНВЕРТИРОВАННО: 0 → U+200C, 1 → U+200B.
+
+    Если кто-то заметит уровень 1 и снимет его — уровень 2 в самом
+    конце файла сохранится, тк это отдельная колонка с другим алгоритмом
+    кодирования. Найти эту метку без ключа (исходного payload) практически
+    невозможно.
+
+    Полная инструкция как проверить файл: см. decode_watermark.py
+    """
     if not rows:
         return
     ts = datetime.now(timezone.utc).strftime("%Y%m%d%H%M")
@@ -85,12 +112,12 @@ def _strip_watermark(value: str) -> str:
 
 
 def save_csv(rows: list[dict], filepath: str) -> str:
-    
+    """Сохраняет строки в CSV. Возвращает абсолютный путь."""
     p = Path(filepath)
     if not p.suffix.lower() == ".csv":
         p = p.with_suffix(".csv")
 
-   
+    # Невидимая метка автора — модифицирует rows на месте
     _embed_watermark(rows)
 
     with open(p, "w", newline="", encoding="utf-8") as f:
@@ -108,7 +135,7 @@ def save_csv(rows: list[dict], filepath: str) -> str:
 
 
 def load_csv(filepath: str) -> list[dict]:
-    
+    """Загружает CSV в список словарей. Невидимые символы метки удаляются."""
     p = Path(filepath)
     if not p.exists():
         return []
@@ -116,6 +143,7 @@ def load_csv(filepath: str) -> list[dict]:
         reader = csv.DictReader(f)
         result = []
         for row in reader:
+            # Убираем невидимые символы из всех значений
             clean = {k: _strip_watermark(v) for k, v in row.items()}
             result.append(clean)
         return result
