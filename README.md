@@ -2,7 +2,7 @@
 
 **A desktop tool for *Elite Dangerous* that helps you find systems with valuable exobiology (Stratum Tectonicas and many other species) that may still have a free First Footfall bonus.**
 
-It queries the Spansh and EDSM databases, scores each candidate system by how likely the First Footfall is still unclaimed, builds an efficient travel route, and exports everything to CSV. It also tracks your collected samples, estimates your payout at Vista Genomics, and predicts which species you'll find on each planet in real time as you scan the system (Real-time bio in search tab).
+It queries the [Spansh](https://spansh.co.uk) and [EDSM](https://www.edsm.net) databases, scores each candidate system by how likely the First Footfall is still unclaimed, builds an efficient travel route, and exports everything to CSV. It also tracks your collected samples and estimates your payout at Vista Genomics.
 
 > First Footfall pays a **×5 bonus** on organic data. A single Stratum Tectonicas set is worth ~19M credits — or ~95M with First Footfall. This tool helps you find the systems where that bonus is most likely still available.
 
@@ -28,10 +28,11 @@ It queries the Spansh and EDSM databases, scores each candidate system by how li
 ---
 
 ## Screenshots
+<img width="1540" height="1197" alt="image" src="https://github.com/user-attachments/assets/616a07ff-bae9-4708-aa56-fa1502c6c956" />
+<img width="1534" height="1201" alt="image" src="https://github.com/user-attachments/assets/9bf0b4b8-4d5e-499a-a7b6-922fd0602a50" />
+<img width="1540" height="1197" alt="image" src="https://github.com/user-attachments/assets/c4fef4a7-6a31-435f-b832-a27d895dfe95" />
 
-<img width="1827" height="1143" alt="1" src="https://github.com/user-attachments/assets/b1865554-44f6-45fe-b63a-7be4d7147003" />
-<img width="1825" height="1142" alt="2" src="https://github.com/user-attachments/assets/3e0db325-dd36-4a27-819d-60fd6a6a0927" />
-<img width="1826" height="1142" alt="3" src="https://github.com/user-attachments/assets/ebccb00a-96cb-4380-8b87-9eb39e7feb9b" />
+
 
 ---
 
@@ -117,6 +118,7 @@ P.S. If you find many systems with First Footfall already claimed when filtering
 > **About First Footfall detection:** Elite Dangerous does **not** record First Footfall status in the journal at scan time — it only appears when you *sell* the data. Therefore every score is an **estimate** based on indirect signals (last-scan date, DSS activity, whether EDSM has data). The tool narrows down likely candidates; it cannot guarantee a free footfall.
 
 > **Why the search takes a while:** Spansh and EDSM are community-run services maintained by volunteers on donation-funded infrastructure. To stay a good neighbour, the app queries them **sequentially** with small delays between requests (~0.8s between Spansh pages, ~0.1s per EDSM lookup) and honours `429` rate-limit responses with exponential back-off. Firing everything in parallel would shave off a few minutes at the cost of degrading the service for everyone — not worth it. For large searches (500+ candidates) the app shows you the ETA upfront so you can decide whether to narrow the radius.
+
 ---
 
 ## Biology profiles

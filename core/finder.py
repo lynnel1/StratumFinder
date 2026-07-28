@@ -44,6 +44,14 @@ BLACK  = "⚫ НЕТ EDSM"
 
 # ─── HTTP ─────────────────────────────────────────────────────
 
+# User-Agent header — identifies the tool in server logs so upstream
+# services (Spansh, EDSM) can trace requests back to this app and
+# reach the maintainer if there's a problem. Change on version bump.
+USER_AGENT = ("StratumFinder/0.3.0 "
+              "(https://github.com/lynnel1/StratumFinder; "
+              "painter28266@gmail.com)")
+
+
 def make_session() -> requests.Session:
     s = requests.Session()
     retry = Retry(
@@ -54,6 +62,7 @@ def make_session() -> requests.Session:
     adapter = HTTPAdapter(max_retries=retry)
     s.mount("https://", adapter)
     s.mount("http://",  adapter)
+    s.headers.update({"User-Agent": USER_AGENT})
     return s
 
 SESSION = make_session()
