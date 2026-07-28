@@ -116,6 +116,7 @@ P.S. If you find many systems with First Footfall already claimed when filtering
 
 > **About First Footfall detection:** Elite Dangerous does **not** record First Footfall status in the journal at scan time — it only appears when you *sell* the data. Therefore every score is an **estimate** based on indirect signals (last-scan date, DSS activity, whether EDSM has data). The tool narrows down likely candidates; it cannot guarantee a free footfall.
 
+> **Why the search takes a while:** Spansh and EDSM are community-run services maintained by volunteers on donation-funded infrastructure. To stay a good neighbour, the app queries them **sequentially** with small delays between requests (~0.8s between Spansh pages, ~0.1s per EDSM lookup) and honours `429` rate-limit responses with exponential back-off. Firing everything in parallel would shave off a few minutes at the cost of degrading the service for everyone — not worth it. For large searches (500+ candidates) the app shows you the ETA upfront so you can decide whether to narrow the radius.
 ---
 
 ## Biology profiles
