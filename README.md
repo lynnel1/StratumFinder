@@ -2,7 +2,7 @@
 
 **A desktop tool for *Elite Dangerous* that helps you find systems with valuable exobiology (Stratum Tectonicas and many other species) that may still have a free First Footfall bonus.**
 
-It queries the [Spansh](https://spansh.co.uk) and [EDSM](https://www.edsm.net) databases, scores each candidate system by how likely the First Footfall is still unclaimed, builds an efficient travel route, and exports everything to CSV. It also tracks your collected samples and estimates your payout at Vista Genomics.
+It queries the Spansh and EDSM databases, scores each candidate system by how likely the First Footfall is still unclaimed, builds an efficient travel route, and exports everything to CSV. It also tracks your collected samples, estimates your payout at Vista Genomics, and predicts which species you'll find on each planet in real time as you scan the system.
 
 > First Footfall pays a **×5 bonus** on organic data. A single Stratum Tectonicas set is worth ~19M credits — or ~95M with First Footfall. This tool helps you find the systems where that bonus is most likely still available.
 
