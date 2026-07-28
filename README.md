@@ -28,11 +28,10 @@ It queries the [Spansh](https://spansh.co.uk) and [EDSM](https://www.edsm.net) d
 ---
 
 ## Screenshots
-<img width="1540" height="1197" alt="image" src="https://github.com/user-attachments/assets/616a07ff-bae9-4708-aa56-fa1502c6c956" />
-<img width="1534" height="1201" alt="image" src="https://github.com/user-attachments/assets/9bf0b4b8-4d5e-499a-a7b6-922fd0602a50" />
-<img width="1540" height="1197" alt="image" src="https://github.com/user-attachments/assets/c4fef4a7-6a31-435f-b832-a27d895dfe95" />
 
-
+<img width="1827" height="1143" alt="1" src="https://github.com/user-attachments/assets/b1865554-44f6-45fe-b63a-7be4d7147003" />
+<img width="1825" height="1142" alt="2" src="https://github.com/user-attachments/assets/3e0db325-dd36-4a27-819d-60fd6a6a0927" />
+<img width="1826" height="1142" alt="3" src="https://github.com/user-attachments/assets/ebccb00a-96cb-4380-8b87-9eb39e7feb9b" />
 
 ---
 
