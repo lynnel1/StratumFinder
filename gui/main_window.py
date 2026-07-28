@@ -96,6 +96,10 @@ class MainWindow(tk.Tk):
         self.current_origin: dict | None = None
         self.current_system_name: str = ""
         self._zones_cache: dict = {"nearest": [], "quiet": []}
+        # Bio window state
+        self._bio_window = None                # создаётся по клику
+        self._current_stars: list = []         # звёзды текущей системы для predictor
+        self._origin_verified: bool = False    # координаты из journal (не HTTP)
 
         self.title("Elite Dangerous — Stratum Finder")
         # Адаптивная стартовая геометрия — точный размер пересчитается
@@ -136,6 +140,32 @@ class MainWindow(tk.Tk):
         self.after(700, self._show_data_tools_reminder)
         # Автозагрузка последнего построенного/открытого списка
         self.after(900, self._autoload_last_csv)
+
+    def _toggle_bio_window(self):
+        """Открыть/закрыть окно real-time биологии."""
+        try:
+            if not hasattr(self, "_bio_window") or self._bio_window is None:
+                from gui.bio_window import BioWindow
+                self._bio_window = BioWindow(self, self.theme)
+                if self.current_system_name:
+                    self._bio_window.on_system_change(self.current_system_name)
+                # Прокинуть уже накопленные звёзды (окно открыли после FSS)
+                for _s in self._current_stars:
+                    self._bio_window.on_star_scanned(_s)
+            else:
+                try:
+                    is_visible = self._bio_window.winfo_viewable()
+                except Exception:
+                    is_visible = False
+                if is_visible:
+                    self._bio_window.withdraw()
+                else:
+                    self._bio_window.show()
+                    if self.current_system_name:
+                        self._bio_window.on_system_change(self.current_system_name)
+        except Exception:
+            import traceback
+            traceback.print_exc()
 
     def _fit_window_to_content(self):
         """
@@ -405,6 +435,12 @@ class MainWindow(tk.Tk):
         btn_search = self._btn(left, _T("start_search"), self._start_search,
                                primary=True)
         btn_search.pack(fill="x", pady=4)
+
+        # Кнопка окна real-time биологии
+        ru_lang = (L._lang == "ru")
+        bio_label = ("🧬 Окно биологии" if ru_lang else "🧬 Real-time bio")
+        btn_bio = self._btn(left, bio_label, self._toggle_bio_window)
+        btn_bio.pack(fill="x", pady=(2, 4))
 
         # Правая колонка — анализ + лог
         right = tk.Frame(frame, bg=self.theme["bg"])
@@ -889,6 +925,18 @@ class MainWindow(tk.Tk):
                          "Our quiet-zone list is based on Odyssey Organics\n"
                          "visualizations."),
             },
+            {
+                "name": "🔭 Vithigar (Elite Observatory Core)",
+                "url":  "https://www.patreon.com/vithigar",
+                "desc": ("Автор Elite Observatory Core (MIT). База параметров\n"
+                         "видов биологии в наших предсказаниях взята из его\n"
+                         "плагина BioInsights, логика — вдохновлена им же."
+                         if ru else
+                         "Author of Elite Observatory Core (MIT). The species\n"
+                         "parameter database used by our biology prediction is\n"
+                         "derived from his BioInsights plugin; the logic is\n"
+                         "inspired by it."),
+            },
         ]
         for d in donations:
             card = tk.Frame(frame, bg=self.theme["panel"])
@@ -911,7 +959,7 @@ class MainWindow(tk.Tk):
             ).pack(anchor="w", padx=12, pady=(0, 8))
 
         # ═══════════════════════════════════════════════════════
-        # СЕКЦИЯ 3: Благодарности
+        # СЕКЦИЯ 3: Благодарности командирам-тестерам
         # ═══════════════════════════════════════════════════════
         thanks_title = ("🙏 Благодарности" if ru else "🙏 Special thanks")
         tk.Label(frame, text=thanks_title,
@@ -2256,7 +2304,13 @@ class MainWindow(tk.Tk):
         def on_system_change(name, coords):
             self.current_origin = coords
             self.current_system_name = name
+            self._origin_verified = True   # journal StarPos = 100% точно
+            # Новая система — сбрасываем список звёзд для predictor'а
+            self._current_stars = []
             self.after(0, self._update_top_panel)
+            # Уведомляем bio_window о смене системы (грузит историю за 5 дней)
+            if self._bio_window is not None:
+                self.after(0, lambda n=name: self._bio_window.on_system_change(n))
 
         def on_scan_organic(species, system, planet, scan_type):
             # В Elite полный сбор организма = 3 скана: Log → Sample → Analyse.
@@ -2274,10 +2328,17 @@ class MainWindow(tk.Tk):
                                        value, with_footfall=False)
                 self.after(0, self._refresh_inventory)
                 self.after(0, lambda: self._log(L.t("log_organic").format(sp=species, sys=sys_name)))
+            # bio_window слушает все scan_type — он сам фильтрует Analyse
+            if self._bio_window is not None:
+                self.after(0, lambda sp=species, sy=system, pl=planet, st=scan_type:
+                    self._bio_window.on_scan_organic(sp, sy, pl, st))
 
         def on_sell(count, total):
             storage.sell_all()
             self.after(0, self._refresh_inventory)
+            if self._bio_window is not None:
+                self.after(0, lambda c=count, t=total:
+                    self._bio_window.on_sell_exobiology(c, t))
 
         def on_died():
             # Корабль уничтожен — все несданные образцы потеряны.
@@ -2297,6 +2358,41 @@ class MainWindow(tk.Tk):
                            if ru else
                            f"💀 Ship destroyed — inventory cleared ({removed} samples lost)")
                 self.after(0, lambda: self._log(log_msg))
+            if self._bio_window is not None:
+                self.after(0, lambda: self._bio_window.on_died())
+
+        # ── Новые callbacks для предсказаний биологии (Сессия 1) ──
+        # Данные поступают в bio_window, который использует predictor.
+        # Визуализация будет в Сессии 2 (перестройка UI на Treeview).
+
+        def on_star_scanned(star_data):
+            # Копим звёзды текущей системы — нужны predictor'у
+            # (Electricae Pluma требует близости к A/White Dwarf/Neutron)
+            self._current_stars.append(star_data)
+            # Передаём в bio_window: он держит свой список для перегенерации
+            # предсказаний, если Scan звезды пришёл после Scan планет
+            if self._bio_window is not None:
+                self.after(0, lambda sd=star_data:
+                    self._bio_window.on_star_scanned(sd))
+
+        def on_body_scanned(body_data):
+            # FSS сканирование планеты — передаём в bio_window вместе с
+            # текущим списком звёзд системы.
+            if self._bio_window is not None:
+                self.after(0, lambda b=body_data, s=list(self._current_stars):
+                    self._bio_window.on_body_scanned(b, s))
+
+        def on_body_signals(body_name, bio_count):
+            # FSSBodySignals — количество биосигналов на планете.
+            if self._bio_window is not None:
+                self.after(0, lambda b=body_name, c=bio_count:
+                    self._bio_window.on_body_signals(b, c))
+
+        def on_dss_result(body_name, genus_list):
+            # SAASignalsFound — DSS-подтверждённые рода биологии.
+            if self._bio_window is not None:
+                self.after(0, lambda b=body_name, g=genus_list:
+                    self._bio_window.on_dss_result(b, g))
 
         self.journal_watcher = journal.JournalWatcher(
             path,
@@ -2304,6 +2400,10 @@ class MainWindow(tk.Tk):
             on_scan_organic=on_scan_organic,
             on_sell_exobiology=on_sell,
             on_died=on_died,
+            on_star_scanned=on_star_scanned,
+            on_body_scanned=on_body_scanned,
+            on_body_signals=on_body_signals,
+            on_dss_result=on_dss_result,
         )
         self.journal_watcher.start()
         self._journal_active = True

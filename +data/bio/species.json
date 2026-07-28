@@ -1,0 +1,655 @@
+{
+  "_meta": {
+    "version":  "1.0",
+    "attribution": "Species parameter data is derived from Elite Observatory Core's BioInsights plugin by Vithigar (https://github.com/Xjph/ObservatoryCore), released under the MIT License. See LICENSE.md for the full MIT notice.",
+    "sources":  [
+      "Canonn Research Group Codex (https://canonn.science/codex/)",
+      "Canonn Bioforge (https://bioforge.canonn.tech/)",
+      "Elite Dangerous Wiki (https://elite-dangerous.fandom.com/)",
+      "Elite Observatory Core BioInsights (https://github.com/Xjph/ObservatoryCore) — MIT-licensed, species parameters derived from this source with attribution"
+    ],
+    "_notes": [
+      "Params: subtypes = list of PlanetClass values from journal Scan event.",
+      "atmospheres = list of Atmosphere values (Thin ... prefix expected).",
+      "gravity_max = m/s^2 divided by 10 (0.27 = 0.27G).",
+      "star_requirements = optional constraints on nearby star types.",
+      "special = optional special notes shown as tooltip in UI.",
+      "base_price / footfall_price in credits."
+    ]
+  },
+  "species": [
+    {
+      "genus":  "Aleoida",
+      "name":   "Aleoida Arcus",
+      "subtypes": ["Rocky body"],
+      "atmospheres": ["Thin Carbon dioxide", "Carbon dioxide"],
+      "temperature_min": 175, "temperature_max": 180,
+      "gravity_max": 0.27,
+      "base_price": 7252500, "footfall_price": 36262500
+    },
+    {
+      "genus":  "Aleoida",
+      "name":   "Aleoida Coronamus",
+      "subtypes": ["Rocky body"],
+      "atmospheres": ["Thin Carbon dioxide", "Carbon dioxide"],
+      "temperature_min": 180, "temperature_max": 190,
+      "gravity_max": 0.27,
+      "base_price": 6284600, "footfall_price": 31423000
+    },
+    {
+      "genus":  "Aleoida",
+      "name":   "Aleoida Gravis",
+      "subtypes": ["Rocky body"],
+      "atmospheres": ["Thin Carbon dioxide", "Carbon dioxide"],
+      "temperature_min": 190, "temperature_max": 195,
+      "gravity_max": 0.27,
+      "base_price": 12934900, "footfall_price": 64674500
+    },
+    {
+      "genus":  "Aleoida",
+      "name":   "Aleoida Laminiae",
+      "subtypes": ["Rocky body"],
+      "atmospheres": ["Thin Ammonia"],
+      "temperature_min": 152, "temperature_max": 177,
+      "gravity_max": 0.27,
+      "base_price": 3385200, "footfall_price": 16926000
+    },
+    {
+      "genus":  "Aleoida",
+      "name":   "Aleoida Spica",
+      "subtypes": ["Rocky body"],
+      "atmospheres": ["Thin Ammonia"],
+      "temperature_min": 170, "temperature_max": 177,
+      "gravity_max": 0.27,
+      "base_price": 3385200, "footfall_price": 16926000
+    },
+    {
+      "genus":  "Bacterium",
+      "name":   "Bacterium Aurasus",
+      "subtypes": ["Rocky body", "High metal content world", "Icy body"],
+      "atmospheres": ["Thin Carbon dioxide", "Carbon dioxide"],
+      "temperature_max": 500,
+      "gravity_max": 0.6,
+      "base_price": 1000000, "footfall_price": 5000000
+    },
+    {
+      "genus":  "Bacterium",
+      "name":   "Bacterium Cerbrus",
+      "subtypes": ["Rocky body", "High metal content world", "Icy body"],
+      "atmospheres": ["Thin Ammonia", "Thin Water", "Thin Sulphur dioxide", "Sulphur dioxide"],
+      "gravity_max": 0.6,
+      "base_price": 1689800, "footfall_price": 8449000
+    },
+    {
+      "genus":  "Bacterium",
+      "name":   "Bacterium Nebulus",
+      "subtypes": ["Icy body"],
+      "atmospheres": ["Thin Helium"],
+      "gravity_max": 0.27,
+      "base_price": 5289900, "footfall_price": 26449500
+    },
+    {
+      "genus":  "Bacterium",
+      "name":   "Bacterium Omentum",
+      "subtypes": ["Icy body"],
+      "atmospheres": ["Thin Nitrogen", "Thin Methane", "Thin Argon"],
+      "gravity_max": 0.4,
+      "volcanism_required": true,
+      "base_price": 4638900, "footfall_price": 23194500,
+      "notes": "Requires volcanism (Nitrogen/Methane geysers or magma)"
+    },
+    {
+      "genus":  "Bacterium",
+      "name":   "Bacterium Tela",
+      "subtypes": ["Rocky body", "High metal content world", "Icy body"],
+      "atmospheres": ["Thin Helium", "Thin Neon", "Thin Argon"],
+      "gravity_max": 0.6,
+      "base_price": 1949000, "footfall_price": 9745000
+    },
+    {
+      "genus":  "Bacterium",
+      "name":   "Bacterium Vesicula",
+      "subtypes": ["Rocky body", "High metal content world", "Icy body"],
+      "atmospheres": ["Thin Argon"],
+      "gravity_max": 0.6,
+      "base_price": 1000000, "footfall_price": 5000000
+    },
+    {
+      "genus":  "Cactoida",
+      "name":   "Cactoida Cortexum",
+      "subtypes": ["Rocky body"],
+      "atmospheres": ["Thin Carbon dioxide", "Carbon dioxide"],
+      "temperature_min": 180, "temperature_max": 195,
+      "gravity_max": 0.27,
+      "base_price": 3667600, "footfall_price": 18338000
+    },
+    {
+      "genus":  "Cactoida",
+      "name":   "Cactoida Lapis",
+      "subtypes": ["Rocky body"],
+      "atmospheres": ["Thin Ammonia"],
+      "gravity_max": 0.27,
+      "base_price": 2483600, "footfall_price": 12418000
+    },
+    {
+      "genus":  "Cactoida",
+      "name":   "Cactoida Peperatis",
+      "subtypes": ["Rocky body"],
+      "atmospheres": ["Thin Ammonia"],
+      "gravity_max": 0.27,
+      "base_price": 2483600, "footfall_price": 12418000
+    },
+    {
+      "genus":  "Cactoida",
+      "name":   "Cactoida Pullulanta",
+      "subtypes": ["Rocky body"],
+      "atmospheres": ["Thin Carbon dioxide", "Carbon dioxide"],
+      "temperature_min": 180, "temperature_max": 195,
+      "gravity_max": 0.27,
+      "base_price": 3667600, "footfall_price": 18338000
+    },
+    {
+      "genus":  "Cactoida",
+      "name":   "Cactoida Vermis",
+      "subtypes": ["Rocky body"],
+      "atmospheres": ["Thin Water"],
+      "gravity_max": 0.27,
+      "base_price": 16202800, "footfall_price": 81014000
+    },
+    {
+      "genus":  "Clypeus",
+      "name":   "Clypeus Lacrimam",
+      "subtypes": ["Rocky body"],
+      "atmospheres": ["Thin Water", "Thin Carbon dioxide", "Carbon dioxide"],
+      "temperature_min": 190,
+      "gravity_max": 0.27,
+      "base_price": 8418000, "footfall_price": 42090000
+    },
+    {
+      "genus":  "Clypeus",
+      "name":   "Clypeus Margaritus",
+      "subtypes": ["High metal content world", "Rocky body"],
+      "atmospheres": ["Thin Water", "Thin Carbon dioxide"],
+      "temperature_min": 190,
+      "gravity_max": 0.27,
+      "pressure_max": 0.1,
+      "base_price": 11873200, "footfall_price": 59366000
+    },
+    {
+      "genus":  "Clypeus",
+      "name":   "Clypeus Speculumi",
+      "subtypes": ["Rocky body"],
+      "atmospheres": ["Thin Water", "Thin Carbon dioxide"],
+      "temperature_min": 190,
+      "gravity_max": 0.27,
+      "base_price": 16202800, "footfall_price": 81014000
+    },
+    {
+      "genus":  "Concha",
+      "name":   "Concha Aureolas",
+      "subtypes": ["Rocky body"],
+      "atmospheres": ["Thin Ammonia"],
+      "gravity_max": 0.27,
+      "base_price": 7774700, "footfall_price": 38873500
+    },
+    {
+      "genus":  "Concha",
+      "name":   "Concha Biconcavis",
+      "subtypes": ["Rocky body"],
+      "atmospheres": ["Thin Nitrogen"],
+      "gravity_max": 0.27,
+      "base_price": 19010800, "footfall_price": 95054000
+    },
+    {
+      "genus":  "Concha",
+      "name":   "Concha Labiata",
+      "subtypes": ["Rocky body"],
+      "atmospheres": ["Thin Carbon dioxide", "Carbon dioxide"],
+      "temperature_max": 195,
+      "gravity_max": 0.27,
+      "base_price": 2352400, "footfall_price": 11762000
+    },
+    {
+      "genus":  "Concha",
+      "name":   "Concha Renibus",
+      "subtypes": ["Rocky body"],
+      "atmospheres": ["Thin Carbon dioxide", "Thin Water", "Carbon dioxide", "Thin Sulphur dioxide"],
+      "temperature_min": 180, "temperature_max": 195,
+      "gravity_max": 0.27,
+      "base_price": 4572400, "footfall_price": 22862000
+    },
+    {
+      "genus":  "Electricae",
+      "name":   "Electricae Pluma",
+      "subtypes": ["Icy body"],
+      "atmospheres": ["Thin Helium", "Thin Neon", "Thin Argon", "Thin Neon-rich"],
+      "temperature_max": 80,
+      "gravity_max": 0.27,
+      "star_requirements": ["A", "White Dwarf", "Neutron"],
+      "base_price": 6284600, "footfall_price": 31423000,
+      "notes": "Requires nearby bright hot star (A-class / White Dwarf / Neutron)"
+    },
+    {
+      "genus":  "Electricae",
+      "name":   "Electricae Radialem",
+      "subtypes": ["Icy body"],
+      "atmospheres": ["Thin Helium", "Thin Neon", "Thin Argon", "Thin Neon-rich"],
+      "temperature_max": 80,
+      "gravity_max": 0.27,
+      "near_nebula_required": true,
+      "base_price": 6284600, "footfall_price": 31423000,
+      "notes": "Only within ~100 ly of a nebula"
+    },
+    {
+      "genus":  "Fonticulua",
+      "name":   "Fonticulua Campestris",
+      "subtypes": ["Icy body"],
+      "atmospheres": ["Thin Argon"],
+      "gravity_max": 0.27,
+      "base_price": 1000000, "footfall_price": 5000000
+    },
+    {
+      "genus":  "Fonticulua",
+      "name":   "Fonticulua Digitos",
+      "subtypes": ["Icy body"],
+      "atmospheres": ["Thin Methane"],
+      "gravity_max": 0.27,
+      "base_price": 1804100, "footfall_price": 9020500
+    },
+    {
+      "genus":  "Fonticulua",
+      "name":   "Fonticulua Fluctus",
+      "subtypes": ["Icy body"],
+      "atmospheres": ["Thin Oxygen"],
+      "temperature_min": 50, "temperature_max": 150,
+      "gravity_max": 0.27,
+      "base_price": 20000000, "footfall_price": 100000000,
+      "notes": "Most expensive exobiology species"
+    },
+    {
+      "genus":  "Fonticulua",
+      "name":   "Fonticulua Segmentatus",
+      "subtypes": ["Icy body"],
+      "atmospheres": ["Thin Neon", "Thin Neon-rich"],
+      "gravity_max": 0.27,
+      "base_price": 19010800, "footfall_price": 95054000
+    },
+    {
+      "genus":  "Fonticulua",
+      "name":   "Fonticulua Upupam",
+      "subtypes": ["Icy body"],
+      "atmospheres": ["Thin Argon-rich"],
+      "gravity_max": 0.27,
+      "base_price": 5727600, "footfall_price": 28638000
+    },
+    {
+      "genus":  "Frutexa",
+      "name":   "Frutexa Acus",
+      "subtypes": ["Rocky body"],
+      "atmospheres": ["Thin Carbon dioxide", "Carbon dioxide"],
+      "temperature_min": 145, "temperature_max": 195,
+      "gravity_max": 0.3,
+      "base_price": 7774700, "footfall_price": 38873500
+    },
+    {
+      "genus":  "Frutexa",
+      "name":   "Frutexa Collum",
+      "subtypes": ["Rocky body"],
+      "atmospheres": ["Thin Sulphur dioxide"],
+      "temperature_min": 195, "temperature_max": 400,
+      "gravity_max": 0.3,
+      "base_price": 1640700, "footfall_price": 8203500
+    },
+    {
+      "genus":  "Frutexa",
+      "name":   "Frutexa Fera",
+      "subtypes": ["Rocky body"],
+      "atmospheres": ["Thin Carbon dioxide", "Carbon dioxide"],
+      "temperature_min": 145, "temperature_max": 195,
+      "gravity_max": 0.3,
+      "base_price": 1632500, "footfall_price": 8162500
+    },
+    {
+      "genus":  "Frutexa",
+      "name":   "Frutexa Flabellum",
+      "subtypes": ["Rocky body"],
+      "atmospheres": ["Thin Ammonia"],
+      "temperature_min": 145, "temperature_max": 195,
+      "gravity_max": 0.3,
+      "base_price": 1808900, "footfall_price": 9044500
+    },
+    {
+      "genus":  "Frutexa",
+      "name":   "Frutexa Flammasis",
+      "subtypes": ["Rocky body"],
+      "atmospheres": ["Thin Ammonia"],
+      "temperature_min": 145, "temperature_max": 195,
+      "gravity_max": 0.3,
+      "base_price": 10326000, "footfall_price": 51630000
+    },
+    {
+      "genus":  "Frutexa",
+      "name":   "Frutexa Metallicum",
+      "subtypes": ["High metal content world"],
+      "atmospheres": ["Thin Ammonia", "Thin Carbon dioxide", "Carbon dioxide"],
+      "temperature_min": 145, "temperature_max": 195,
+      "gravity_max": 0.3,
+      "base_price": 1632500, "footfall_price": 8162500
+    },
+    {
+      "genus":  "Frutexa",
+      "name":   "Frutexa Sponsae",
+      "subtypes": ["Rocky body"],
+      "atmospheres": ["Thin Water"],
+      "temperature_min": 175,
+      "gravity_max": 0.3,
+      "base_price": 5988000, "footfall_price": 29940000
+    },
+    {
+      "genus":  "Osseus",
+      "name":   "Osseus Cornibus",
+      "subtypes": ["Rocky body", "High metal content world"],
+      "atmospheres": ["Thin Carbon dioxide", "Carbon dioxide"],
+      "temperature_min": 180, "temperature_max": 195,
+      "gravity_max": 0.35,
+      "base_price": 1483000, "footfall_price": 7415000
+    },
+    {
+      "genus":  "Osseus",
+      "name":   "Osseus Discus",
+      "subtypes": ["Rocky body", "High metal content world"],
+      "atmospheres": ["Thin Water"],
+      "temperature_min": 175,
+      "gravity_max": 0.3,
+      "base_price": 12934900, "footfall_price": 64674500
+    },
+    {
+      "genus":  "Osseus",
+      "name":   "Osseus Fractus",
+      "subtypes": ["Rocky body", "High metal content world"],
+      "atmospheres": ["Thin Carbon dioxide", "Carbon dioxide"],
+      "temperature_min": 180, "temperature_max": 195,
+      "gravity_max": 0.35,
+      "base_price": 4027800, "footfall_price": 20139000
+    },
+    {
+      "genus":  "Osseus",
+      "name":   "Osseus Pellebantus",
+      "subtypes": ["Rocky body"],
+      "atmospheres": ["Thin Carbon dioxide", "Thin Sulphur dioxide", "Carbon dioxide"],
+      "temperature_min": 190, "temperature_max": 195,
+      "gravity_max": 0.3,
+      "base_price": 9739000, "footfall_price": 48695000
+    },
+    {
+      "genus":  "Osseus",
+      "name":   "Osseus Pumice",
+      "subtypes": ["Rocky body", "Icy body", "High metal content world"],
+      "atmospheres": ["Thin Argon", "Thin Methane", "Thin Nitrogen"],
+      "gravity_max": 0.35,
+      "base_price": 3156300, "footfall_price": 15781500
+    },
+    {
+      "genus":  "Osseus",
+      "name":   "Osseus Spiralis",
+      "subtypes": ["Rocky body", "High metal content world"],
+      "atmospheres": ["Thin Ammonia"],
+      "gravity_max": 0.35,
+      "base_price": 2404700, "footfall_price": 12023500
+    },
+    {
+      "genus":  "Recepta",
+      "name":   "Recepta Conditivus",
+      "subtypes": ["Icy body"],
+      "atmospheres": ["Thin Sulphur dioxide"],
+      "gravity_max": 0.27,
+      "base_price": 14313700, "footfall_price": 71568500
+    },
+    {
+      "genus":  "Recepta",
+      "name":   "Recepta Deltahedronix",
+      "subtypes": ["Rocky body", "High metal content world"],
+      "atmospheres": ["Thin Sulphur dioxide"],
+      "gravity_max": 0.27,
+      "base_price": 16202800, "footfall_price": 81014000
+    },
+    {
+      "genus":  "Recepta",
+      "name":   "Recepta Umbrux",
+      "subtypes": ["Rocky body", "High metal content world", "Icy body"],
+      "atmospheres": ["Thin Sulphur dioxide"],
+      "gravity_max": 0.27,
+      "base_price": 12934900, "footfall_price": 64674500
+    },
+    {
+      "genus":  "Stratum",
+      "name":   "Stratum Araneamus",
+      "subtypes": ["Rocky body"],
+      "atmospheres": ["Thin Sulphur dioxide"],
+      "temperature_min": 165,
+      "gravity_max": 0.43,
+      "base_price": 2448900, "footfall_price": 12244500
+    },
+    {
+      "genus":  "Stratum",
+      "name":   "Stratum Cucumisis",
+      "subtypes": ["Rocky body"],
+      "atmospheres": ["Thin Carbon dioxide", "Thin Sulphur dioxide", "Carbon dioxide"],
+      "temperature_min": 190,
+      "gravity_max": 0.43,
+      "base_price": 16202800, "footfall_price": 81014000
+    },
+    {
+      "genus":  "Stratum",
+      "name":   "Stratum Excutitus",
+      "subtypes": ["Rocky body"],
+      "atmospheres": ["Thin Carbon dioxide", "Thin Sulphur dioxide", "Carbon dioxide"],
+      "temperature_min": 165, "temperature_max": 190,
+      "gravity_max": 0.43,
+      "base_price": 2448900, "footfall_price": 12244500
+    },
+    {
+      "genus":  "Stratum",
+      "name":   "Stratum Frigus",
+      "subtypes": ["Rocky body"],
+      "atmospheres": ["Thin Ammonia", "Thin Sulphur dioxide"],
+      "temperature_min": 165, "temperature_max": 190,
+      "gravity_max": 0.43,
+      "base_price": 2637500, "footfall_price": 13187500
+    },
+    {
+      "genus":  "Stratum",
+      "name":   "Stratum Laminamus",
+      "subtypes": ["Rocky body"],
+      "atmospheres": ["Thin Ammonia"],
+      "temperature_min": 165,
+      "gravity_max": 0.43,
+      "base_price": 2788300, "footfall_price": 13941500
+    },
+    {
+      "genus":  "Stratum",
+      "name":   "Stratum Limaxus",
+      "subtypes": ["Rocky body"],
+      "atmospheres": ["Thin Sulphur dioxide"],
+      "temperature_min": 165, "temperature_max": 190,
+      "gravity_max": 0.43,
+      "base_price": 1202100, "footfall_price": 6010500
+    },
+    {
+      "genus":  "Stratum",
+      "name":   "Stratum Paleas",
+      "subtypes": ["Rocky body"],
+      "atmospheres": ["Thin Ammonia", "Thin Carbon dioxide", "Thin Sulphur dioxide", "Carbon dioxide"],
+      "temperature_min": 165,
+      "gravity_max": 0.43,
+      "base_price": 1362800, "footfall_price": 6814000
+    },
+    {
+      "genus":  "Stratum",
+      "name":   "Stratum Tectonicas",
+      "subtypes": ["High metal content world"],
+      "atmospheres": ["Thin Ammonia", "Thin Carbon dioxide", "Thin Sulphur dioxide", "Thin Water"],
+      "temperature_min": 165,
+      "gravity_max": 0.43,
+      "base_price": 19010800, "footfall_price": 95054000,
+      "notes": "Most expensive Stratum. HMC only."
+    },
+    {
+      "genus":  "Tubus",
+      "name":   "Tubus Cavas",
+      "subtypes": ["Rocky body"],
+      "atmospheres": ["Thin Carbon dioxide", "Carbon dioxide"],
+      "temperature_min": 160, "temperature_max": 190,
+      "gravity_max": 0.15,
+      "base_price": 11873200, "footfall_price": 59366000
+    },
+    {
+      "genus":  "Tubus",
+      "name":   "Tubus Compagibus",
+      "subtypes": ["Rocky body"],
+      "atmospheres": ["Thin Carbon dioxide", "Carbon dioxide"],
+      "temperature_min": 160, "temperature_max": 190,
+      "gravity_max": 0.15,
+      "base_price": 7774700, "footfall_price": 38873500
+    },
+    {
+      "genus":  "Tubus",
+      "name":   "Tubus Conifer",
+      "subtypes": ["Rocky body"],
+      "atmospheres": ["Thin Carbon dioxide", "Carbon dioxide"],
+      "temperature_min": 160, "temperature_max": 190,
+      "gravity_max": 0.15,
+      "base_price": 2415500, "footfall_price": 12077500
+    },
+    {
+      "genus":  "Tubus",
+      "name":   "Tubus Rosarium",
+      "subtypes": ["Rocky body"],
+      "atmospheres": ["Thin Ammonia"],
+      "gravity_max": 0.15,
+      "base_price": 2637500, "footfall_price": 13187500
+    },
+    {
+      "genus":  "Tubus",
+      "name":   "Tubus Sororibus",
+      "subtypes": ["High metal content world", "Rocky body"],
+      "atmospheres": ["Thin Ammonia", "Thin Carbon dioxide", "Carbon dioxide"],
+      "temperature_min": 160, "temperature_max": 190,
+      "gravity_max": 0.15,
+      "base_price": 5727600, "footfall_price": 28638000
+    },
+    {
+      "genus":  "Tussock",
+      "name":   "Tussock Albata",
+      "subtypes": ["Rocky body"],
+      "atmospheres": ["Thin Carbon dioxide", "Carbon dioxide"],
+      "temperature_min": 175, "temperature_max": 180,
+      "gravity_max": 0.3,
+      "base_price": 3252500, "footfall_price": 16262500
+    },
+    {
+      "genus":  "Tussock",
+      "name":   "Tussock Capillum",
+      "subtypes": ["Rocky body"],
+      "atmospheres": ["Thin Argon", "Thin Methane"],
+      "gravity_max": 0.3,
+      "base_price": 7025800, "footfall_price": 35129000
+    },
+    {
+      "genus":  "Tussock",
+      "name":   "Tussock Caputus",
+      "subtypes": ["Rocky body"],
+      "atmospheres": ["Thin Carbon dioxide", "Carbon dioxide"],
+      "temperature_min": 180, "temperature_max": 195,
+      "gravity_max": 0.3,
+      "base_price": 3472400, "footfall_price": 17362000
+    },
+    {
+      "genus":  "Tussock",
+      "name":   "Tussock Cultro",
+      "subtypes": ["Rocky body"],
+      "atmospheres": ["Thin Ammonia"],
+      "gravity_max": 0.3,
+      "base_price": 1766600, "footfall_price": 8833000
+    },
+    {
+      "genus":  "Tussock",
+      "name":   "Tussock Divisa",
+      "subtypes": ["Rocky body"],
+      "atmospheres": ["Thin Ammonia"],
+      "gravity_max": 0.3,
+      "base_price": 1766600, "footfall_price": 8833000
+    },
+    {
+      "genus":  "Tussock",
+      "name":   "Tussock Ignis",
+      "subtypes": ["Rocky body"],
+      "atmospheres": ["Thin Carbon dioxide", "Carbon dioxide"],
+      "temperature_min": 160, "temperature_max": 170,
+      "gravity_max": 0.3,
+      "base_price": 1849000, "footfall_price": 9245000
+    },
+    {
+      "genus":  "Tussock",
+      "name":   "Tussock Pennata",
+      "subtypes": ["Rocky body"],
+      "atmospheres": ["Thin Carbon dioxide", "Carbon dioxide"],
+      "temperature_min": 145, "temperature_max": 196,
+      "gravity_max": 0.3,
+      "base_price": 5853800, "footfall_price": 29269000
+    },
+    {
+      "genus":  "Tussock",
+      "name":   "Tussock Pennatis",
+      "subtypes": ["Rocky body"],
+      "atmospheres": ["Thin Carbon dioxide", "Carbon dioxide"],
+      "temperature_max": 195,
+      "gravity_max": 0.3,
+      "base_price": 1000000, "footfall_price": 5000000
+    },
+    {
+      "genus":  "Tussock",
+      "name":   "Tussock Propagito",
+      "subtypes": ["Rocky body"],
+      "atmospheres": ["Thin Carbon dioxide", "Carbon dioxide"],
+      "temperature_max": 195,
+      "gravity_max": 0.3,
+      "base_price": 1000000, "footfall_price": 5000000
+    },
+    {
+      "genus":  "Tussock",
+      "name":   "Tussock Serrati",
+      "subtypes": ["Rocky body"],
+      "atmospheres": ["Thin Carbon dioxide", "Carbon dioxide"],
+      "temperature_min": 170, "temperature_max": 190,
+      "gravity_max": 0.3,
+      "base_price": 4447100, "footfall_price": 22235500
+    },
+    {
+      "genus":  "Tussock",
+      "name":   "Tussock Stigmasis",
+      "subtypes": ["Rocky body"],
+      "atmospheres": ["Thin Sulphur dioxide"],
+      "gravity_max": 0.3,
+      "base_price": 19010800, "footfall_price": 95054000
+    },
+    {
+      "genus":  "Tussock",
+      "name":   "Tussock Triticum",
+      "subtypes": ["Rocky body", "High metal content world"],
+      "atmospheres": ["Thin Carbon dioxide", "Carbon dioxide"],
+      "temperature_min": 190, "temperature_max": 195,
+      "gravity_max": 0.3,
+      "base_price": 7774700, "footfall_price": 38873500
+    },
+    {
+      "genus":  "Tussock",
+      "name":   "Tussock Ventusa",
+      "subtypes": ["Rocky body"],
+      "atmospheres": ["Thin Carbon dioxide", "Carbon dioxide"],
+      "temperature_min": 155, "temperature_max": 195,
+      "gravity_max": 0.3,
+      "base_price": 3227700, "footfall_price": 16138500
+    }
+  ]
+}

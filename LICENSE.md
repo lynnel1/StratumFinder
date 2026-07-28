@@ -92,5 +92,49 @@ StratumFinder uses data from the following services:
 - [Canonn Research Group](https://canonn.science) — exobiology parameters
 - [EDAstro / CMDR Orvidius](https://edastro.com) — biology distribution maps
 
+## Third-Party Notices — MIT-licensed code
+
+The species parameter database used by StratumFinder's biology
+prediction (`+data/bio/species.json`) is **derived from data used in
+the BioInsights plugin** for **Elite Observatory Core** by Vithigar
+(GitHub: [Xjph](https://github.com/Xjph)). The prediction logic in
+`core/bio_predictor.py` is **inspired by** the same plugin. Elite
+Observatory Core is released under the MIT License.
+
+The MIT License is compatible with AGPL-3.0. As required by the MIT
+License, the original copyright notice is preserved below:
+
+```
+MIT License
+
+Copyright (c) Vithigar (Xjph)
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+```
+
+Full source code of Elite Observatory Core is available at:
+<https://github.com/Xjph/ObservatoryCore>
+
+If you find the biology-prediction feature useful, please consider
+supporting the original author on Patreon:
+<https://www.patreon.com/vithigar>
+
 *Elite Dangerous* is a trademark of Frontier Developments plc.
 StratumFinder is an unofficial, fan-made tool not endorsed by Frontier.

@@ -253,6 +253,7 @@ This tool would not be possible without the community projects whose data it rel
 - **[EDSM](https://www.patreon.com/edsm)** — galaxy map and scan history used for verification.
 - **[Canonn Research Group](https://www.patreon.com/Canonn)** — the exobiology parameters all the search filters are based on.
 - **[EDAstro](https://edastro.com)** — biology distribution maps used to build the quiet-zone list.
+- **[Elite Observatory Core](https://github.com/Xjph/ObservatoryCore) by [Vithigar](https://www.patreon.com/vithigar)** — the species parameter database used by the biology prediction feature is derived from the BioInsights plugin; the prediction logic itself is inspired by it.
 
 Please also run a data-relay tool (EDMC, EDDiscovery, EDDI, or Elite Observatory) while you play, so these databases keep growing for everyone.
 

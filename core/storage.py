@@ -109,11 +109,79 @@ def get_species_price(species: str) -> int:
 
 
 def get_user_dir() -> Path:
-    """Папка пользовательских данных — ВСЕГДА рядом с EXE (не в _MEIPASS,
-    т.к. та временная и стирается). Здесь настройки, инвентарь, история."""
-    d = get_app_dir() / "+data" / "user"
-    d.mkdir(parents=True, exist_ok=True)
-    return d
+    """
+    Папка пользовательских данных.
+
+    Стратегия:
+    1) Основное место — стандартный per-user каталог:
+       - Windows: %APPDATA%\\StratumFinder\\
+       - Linux/Mac: ~/.stratum_finder/
+       Это переживает переустановку/обновление EXE.
+    2) При первом запуске новой версии — АВТОМИГРАЦИЯ из старого места
+       (+data/user/ рядом с EXE) если оно ещё существует.
+    """
+    import os
+    import platform
+
+    if platform.system() == "Windows":
+        base = os.environ.get("APPDATA")
+        if base:
+            new_dir = Path(base) / "StratumFinder"
+        else:
+            new_dir = Path.home() / ".stratum_finder"
+    else:
+        new_dir = Path.home() / ".stratum_finder"
+
+    new_dir.mkdir(parents=True, exist_ok=True)
+    _migrate_user_data_if_needed(new_dir)
+    return new_dir
+
+
+def _migrate_user_data_if_needed(new_dir: Path) -> None:
+    """
+    Если рядом с EXE есть старая папка +data/user/ с реальными данными,
+    и в новом месте нет маркера что миграция уже была — переносим файлы.
+    Идемпотентно.
+    """
+    old_dir = get_app_dir() / "+data" / "user"
+    migrated_marker = new_dir / ".migrated_v0_2_1"
+
+    if migrated_marker.exists():
+        return
+    if not old_dir.exists() or not old_dir.is_dir():
+        migrated_marker.touch()
+        return
+
+    KNOWN_FILES = [
+        "settings.json", "inventory.json", "history.json",
+        "visited.json", "realtime_bio.json", "update_check.json",
+    ]
+
+    moved_count = 0
+    try:
+        import shutil
+        for fname in KNOWN_FILES:
+            old_f = old_dir / fname
+            new_f = new_dir / fname
+            if old_f.exists() and not new_f.exists():
+                shutil.copy2(str(old_f), str(new_f))
+                moved_count += 1
+        if moved_count > 0:
+            try:
+                (old_dir / "MOVED.txt").write_text(
+                    f"StratumFinder user data has been moved to:\n{new_dir}\n\n"
+                    "You can safely delete the +data/user/ folder next to the "
+                    "executable — all your settings, inventory, history and visited "
+                    "systems are now stored in the location above and will survive "
+                    "future updates.\n",
+                    encoding="utf-8",
+                )
+            except Exception:
+                pass
+    except Exception:
+        pass
+
+    migrated_marker.touch()
 
 
 def get_output_dir() -> Path:
