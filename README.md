@@ -30,9 +30,14 @@ It queries the [Spansh](https://spansh.co.uk) and [EDSM](https://www.edsm.net) d
 
 ## Screenshots
 
-<img width="1120" height="1085" alt="image" src="https://github.com/user-attachments/assets/616a07ff-bae9-4708-aa56-fa1502c6c956" />
-<img width="1080" height="1148" alt="image" src="https://github.com/user-attachments/assets/9bf0b4b8-4d5e-499a-a7b6-922fd0602a50" />
-<img width="1080" height="1148" alt="image" src="https://github.com/user-attachments/assets/c4fef4a7-6a31-435f-b832-a27d895dfe95" />
+<img width="1827" height="1148" alt="Screenshot 2026-07-28 221537" src="https://github.com/user-attachments/assets/8b4c554d-f16e-4c57-abaf-7b9c111b7d49" />
+
+<img width="1825" height="1143" alt="Screenshot 2026-07-28 221629" src="https://github.com/user-attachments/assets/7e2980c2-0585-4474-be6e-741ba311f5d7" />
+
+<img width="1826" height="1142" alt="Screenshot 2026-07-28 221702" src="https://github.com/user-attachments/assets/8a19d79b-ae0b-45c8-8698-527dae47eb27" />
+
+
+
 
 ---
 
