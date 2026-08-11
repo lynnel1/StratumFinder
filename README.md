@@ -2,7 +2,7 @@
 
 **A desktop tool for *Elite Dangerous* that helps you find systems with valuable exobiology (Stratum Tectonicas and many other species) that may still have a free First Footfall bonus.**
 
-It queries the [Spansh](https://spansh.co.uk) and [EDSM](https://www.edsm.net) databases, scores each candidate system by how likely the First Footfall is still unclaimed, builds an efficient travel route, and exports everything to CSV. It also tracks your collected samples and estimates your payout at Vista Genomics.
+It queries the [Spansh](https://spansh.co.uk) and [EDSM](https://www.edsm.net) databases, scores each candidate system by how likely the First Footfall is still unclaimed, builds an efficient travel route, and exports everything to CSV. It also tracks your collected samples, estimates your payout at Vista Genomics, and predicts which species you'll find on each planet in real time as you scan the system.
 
 > First Footfall pays a **×5 bonus** on organic data. A single Stratum Tectonicas set is worth ~19M credits — or ~95M with First Footfall. This tool helps you find the systems where that bonus is most likely still available.
 
@@ -18,6 +18,7 @@ It queries the [Spansh](https://spansh.co.uk) and [EDSM](https://www.edsm.net) d
 - **Configurable max distance from main star** — in Settings choose 50k / 100k / 250k / 500k ls or no limit, overriding profile defaults. Useful for huge multi-star systems with widely separated bodies.
 - **Automatic route planning** — nearest-neighbour ordering with per-jump distances.
 - **Inventory tracker** — logs your collected organisms, auto-imports completed scans from your Elite journal, prices them by species, lets you flag First Footfall, and totals your potential Vista Genomics payout.
+- **Real-time biology tracker** — a companion window that reads your journal live and shows what's on each planet in your current system. After FSS you get instant species predictions from a 72-species database, DSS narrows candidates down to confirmed genera, and `ScanOrganic` marks samples as collected — with historic entries from your journal (last 5 days) pulled in automatically.
 - **Elite journal integration** — auto-detects your current system and picks up biology scans in real time.
 - **EDMC integration prompt** — at launch the app strongly recommends EDMC (one-click download) so your scans flow back into EDDN → Spansh / EDSM / Inara / Canonn for everyone.
 - **Adaptive UI** — main window auto-sizes to fit any screen resolution from 1366×768 laptops up to 4K.
@@ -28,11 +29,11 @@ It queries the [Spansh](https://spansh.co.uk) and [EDSM](https://www.edsm.net) d
 ---
 
 ## Screenshots
-<img width="1827" height="1143" alt="1" src="https://github.com/user-attachments/assets/aa9323dc-4354-4e77-a958-cb8b15b10490" />
 
-<img width="1825" height="1142" alt="2" src="https://github.com/user-attachments/assets/76c32fba-3e85-4a01-aa3d-0832cf290511" />
+<img width="1120" height="1085" alt="image" src="https://github.com/user-attachments/assets/616a07ff-bae9-4708-aa56-fa1502c6c956" />
+<img width="1080" height="1148" alt="image" src="https://github.com/user-attachments/assets/9bf0b4b8-4d5e-499a-a7b6-922fd0602a50" />
+<img width="1080" height="1148" alt="image" src="https://github.com/user-attachments/assets/c4fef4a7-6a31-435f-b832-a27d895dfe95" />
 
-<img width="1826" height="1142" alt="3" src="https://github.com/user-attachments/assets/8263954c-3ca8-40a5-a6f1-2ce81f85db4f" />
 ---
 
 ## Requirements
@@ -48,7 +49,7 @@ It queries the [Spansh](https://spansh.co.uk) and [EDSM](https://www.edsm.net) d
 
 ### Option A — Run the pre-built executable
 
-1. Download the latest release archive from the [Releases](../../releases) page.
+1. Download the latest release archive from the [Releases](https://github.com/lynnel1/StratumFinder/releases) page.
 2. Extract it anywhere (a path **without non-Latin characters** is safest).
 3. Keep `StratumFinder.exe` and the `+data` folder **together** in the same directory.
 4. Double-click `StratumFinder.exe`.
@@ -58,8 +59,8 @@ On first launch the app creates a `+data/user/` folder (your settings, inventory
 ### Option B — Run from source
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/stratum-finder.git
-cd stratum-finder
+git clone https://github.com/lynnel1/StratumFinder.git
+cd StratumFinder
 pip install -r requirements.txt
 python app.py
 ```
@@ -68,10 +69,10 @@ python app.py
 
 The repository includes two build scripts (Windows):
 
-| Script | Output | Developer mode |
-|---|---|---|
-| `build_exe.bat` | `dist/StratumFinder-dev.exe` | **enabled** (Ctrl+Shift+D) |
-| `build_release.bat` | `dist/StratumFinder.exe` | disabled (hidden) |
+| Script              | Output                       | Developer mode             |
+| ------------------- | ---------------------------- | -------------------------- |
+| `build_exe.bat`     | `dist/StratumFinder-dev.exe` | **enabled** (Ctrl+Shift+D) |
+| `build_release.bat` | `dist/StratumFinder.exe`     | disabled (hidden)          |
 
 Just double-click the script you want. It installs dependencies, runs PyInstaller, and copies the `+data` folder next to the resulting `.exe`.
 
@@ -86,17 +87,21 @@ Just double-click the script you want. It installs dependencies, runs PyInstalle
    ```
    %USERPROFILE%\Saved Games\Frontier Developments\Elite Dangerous\
    ```
+
 2. **Search tab:**
    - Click **AUTO** to read your current system from the journal.
    - Pick **one or more biology profiles** from the dropdown (chips appear below; click ✕ to remove). Start with *All Stratum*.
    - Choose a **search radius** (1000 ly is a good default).
    - Click **ANALYZE POSITION** to see your distance from Sol, the local busyness score, and nearby quiet zones.
    - Click **START SEARCH**.
+
 3. **Results tab:**
-   - Filter by colour (🟢🟡🔵🔴) and by extra criteria (if they are available). If you are hunting biology with first footfall - use 🟢 or 70+ score marker for highest first foorfall chance.
+   - Filter by colour (🟢🟡🔵🔴) and by extra criteria (if they are available).
    - **Single-click** a row to copy the system name to your clipboard (paste it into the in-game Galaxy Map).
+   - **Double-click** a row to open the system on EDSM.
    - Export the filtered list with **Export CSV**.
-4. Fly out, collect your exobiology, and use the **Inventory tab** to track and value your finds.
+
+4. Fly out, collect your exobiology, and use the **Inventory tab** to track and value your finds. Open the **Real-time bio window** from the Search tab if you want live predictions and collection tracking while you scan.
 
 ---
 
@@ -104,15 +109,13 @@ Just double-click the script you want. It installs dependencies, runs PyInstalle
 
 For a selected biology profile and origin point, the app runs three Spansh queries and merges the results:
 
-| Strategy | Filter |
-|---|---|
-| **A** | Bodies last updated **before Odyssey** (2021-05-19) — never visited on foot or not mapped. |
-| **B** | Bodies with **biological signals ≥ 1**. |
-| **D** | Pure Canonn filter (subtype, atmosphere, temperature, gravity, pressure). |
+| Strategy | Filter                                                                                     |
+| -------- | ------------------------------------------------------------------------------------------ |
+| **A**    | Bodies last updated **before Odyssey** (2021-05-19) — never visited on foot or not mapped. |
+| **B**    | Bodies with **biological signals ≥ 1**.                                                    |
+| **D**    | Pure Canonn filter (subtype, atmosphere, temperature, gravity, pressure).                  |
 
 Each unique candidate system is then verified against EDSM (mapping history, recent activity), scored, and ordered into a route. The result is written to a CSV in the `n/` folder, named `profile_YYYY-MM-DD_N.csv` (the counter `N` resets each day).
-
-P.S. If you find many systems with First Footfall already claimed when filtering by 🟢 (70+), fly out another 500–1000–1500 light years (depending on your search radius) and generate a new list. Tracking every First Footfall in the galaxy in real time is simply impossible — that's exactly why the app reminds you on every launch to run EDMC, so the underlying databases keep growing for everyone.
 
 > **About First Footfall detection:** Elite Dangerous does **not** record First Footfall status in the journal at scan time — it only appears when you *sell* the data. Therefore every score is an **estimate** based on indirect signals (last-scan date, DSS activity, whether EDSM has data). The tool narrows down likely candidates; it cannot guarantee a free footfall.
 
@@ -174,18 +177,38 @@ The Inventory tab tracks collected organisms as sample sets (1/3, 2/3, 3/3).
 
 ---
 
+## Real-time biology tracker
+
+A companion window that opens from the Search tab and follows what you're doing in-game.
+
+The tracker groups planets under the current system header and shows one line per species with a visual state:
+
+| State | Icon | Trigger |
+|-------|------|---------|
+| Predicted | 🔍 | After FSS Scan + FSSBodySignals — species that fit the planet's parameters. |
+| Genus confirmed | ✨ | After DSS `SAASignalsFound` — narrows the list to the exact genera the game confirmed. |
+| Collected | ✅ | After `ScanOrganic Analyse` — a real collection on the surface. |
+| Historic | 📚 | Pulled from your journal for the last 5 days — species you already collected earlier. |
+
+Predictions are drawn from a 72-species database matched against subtype, atmosphere, temperature, gravity, pressure, volcanism, and required nearby star type (e.g. *Electricae Pluma* needs an A / White Dwarf / Neutron star in the system). Estimated prices are prefixed with `~` so you never confuse a forecast with a confirmed value.
+
+The window persists between launches, but only if you're still in the same system — after a jump the tree resets and the tracker starts fresh.
+
+---
+
 ## Configuration & data files
 
 Everything user-editable lives in the `+data/` folder next to the executable:
 
-| File / folder | Purpose |
-|---|---|
-| `+data/profiles/` | Biology search profiles (JSON). |
-| `+data/themes.json` | Colour themes. |
-| `+data/quiet_zones.json` | Quiet galactic regions with coordinates. |
-| `+data/exobiology_prices.json` | Base credit values per species. |
-| `+data/user/` | Your settings, inventory, and history (created on first run). |
-| `n/` | Exported CSV result lists. |
+| File / folder                  | Purpose                                                       |
+| ------------------------------ | ------------------------------------------------------------- |
+| `+data/profiles/`              | Biology search profiles (JSON).                               |
+| `+data/bio/species.json`       | 72-species parameter database for real-time predictions.      |
+| `+data/themes.json`            | Colour themes.                                                |
+| `+data/quiet_zones.json`       | Quiet galactic regions with coordinates.                      |
+| `+data/exobiology_prices.json` | Base credit values per species.                               |
+| `+data/user/`                  | Your settings, inventory, and history (created on first run). |
+| `n/`                           | Exported CSV result lists.                                    |
 
 ---
 
@@ -203,7 +226,7 @@ Available only in the `build_exe.bat` (dev) build. Open it with **Ctrl+Shift+D**
 
 ## Antivirus false positives
 
-PyInstaller-built executables are routinely flagged as generic malware (`Win64:Malware-gen`) by AVG, Avast, Windows Defender, and similar products. **This is a known false positive, not a real infection.** Free ways to deal with it, lauching it from VS code is fine and no reaction from antivirus:
+PyInstaller-built executables are routinely flagged as generic malware (`Win64:Malware-gen`) by AVG, Avast, Windows Defender, and similar products. **This is a known false positive, not a real infection.** Free ways to deal with it (launching from VS Code triggers nothing at all):
 
 - **Add an exclusion** for the app folder in your antivirus (simplest for personal use).
 - **Build with `--onedir`** instead of `--onefile` — a folder of files triggers fewer detections than a single packed executable.
@@ -216,7 +239,7 @@ Eliminating the warning for *everyone* requires a paid code-signing certificate;
 ## Project structure
 
 ```
-stratum-finder/
+StratumFinder/
 ├── app.py                  # Entry point
 ├── build_exe.bat           # Build with developer mode
 ├── build_release.bat       # Build without developer mode
@@ -227,13 +250,15 @@ stratum-finder/
 │   ├── storage.py          # Settings, inventory, pricing
 │   ├── zones.py            # Quiet-zone analysis
 │   ├── journal.py          # Elite journal parser
+│   ├── bio_predictor.py    # 72-species real-time prediction engine
 │   └── csv_io.py           # CSV read/write
 ├── gui/
 │   ├── main_window.py      # Main UI
+│   ├── bio_window.py       # Real-time biology tracker
 │   ├── dev_window.py       # Developer window (optional)
 │   ├── theme.py            # Theme loading
 │   └── i18n.py             # English / Russian translations
-└── +data/                  # Editable data (profiles, themes, prices, zones)
+└── +data/                  # Editable data (profiles, themes, prices, zones, species)
 ```
 
 ---
@@ -254,7 +279,7 @@ This tool would not be possible without the community projects whose data it rel
 - **[EDSM](https://www.patreon.com/edsm)** — galaxy map and scan history used for verification.
 - **[Canonn Research Group](https://www.patreon.com/Canonn)** — the exobiology parameters all the search filters are based on.
 - **[EDAstro](https://edastro.com)** — biology distribution maps used to build the quiet-zone list.
-- **[Elite Observatory Core](https://github.com/Xjph/ObservatoryCore) by [Vithigar](https://www.patreon.com/vithigar)** — the species parameter database used by the biology prediction feature is derived from the BioInsights plugin; the prediction logic itself is inspired by it.
+- **[Elite Observatory Core](https://github.com/Xjph/ObservatoryCore) by [Vithigar](https://www.patreon.com/vithigar)** — the species parameter database used by the real-time biology tracker is derived from the BioInsights plugin (MIT-licensed); the prediction logic is inspired by it. Full attribution in [LICENSE.md](LICENSE.md).
 
 Please also run a data-relay tool (EDMC, EDDiscovery, EDDI, or Elite Observatory) while you play, so these databases keep growing for everyone.
 
@@ -268,7 +293,7 @@ This is an unofficial, fan-made tool. *Elite Dangerous* is a trademark of Fronti
 
 ## License
 
-This software is released strictly for personal, non-commercial use only. 
+This software is released strictly for personal, non-commercial use only.
 
 - **Commercial Use Prohibited:** Any form of monetization, sale, or generation of income using this code, its binaries, or any modified parts of this project is strictly forbidden.
 - **API Terms:** Access to Spansh and EDSM APIs through this tool remains entirely subject to their respective terms of service.
